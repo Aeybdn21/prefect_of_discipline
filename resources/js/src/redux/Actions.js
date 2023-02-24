@@ -1,0 +1,5 @@
+export const Actions = {
+    USER_INFO: 'USER_INFO',
+    USER_INFO_SUCCESS: 'USER_INFO_SUCCESS',
+    USER_INFO_ERROR: 'USER_INFO_ERROR'
+}
