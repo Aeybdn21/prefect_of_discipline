@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import {months} from './Utils';
 
-export default function Index() { 
-   
+export default function Index() {  
+
   useEffect(() => {
+    
     handleChart();
-  },[])
+
+  },[]);
+
   const handleChart = () => { 
       const labels = months({count: 7});
       const data = {

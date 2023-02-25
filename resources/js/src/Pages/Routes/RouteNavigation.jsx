@@ -1,17 +1,32 @@
 import MainLayout from '@/src/Layouts/MainLayout';
+import { Actions } from '@/src/redux/Actions';
 import store from '@/src/redux/store';
 import React from 'react' 
-import { Provider } from 'react-redux';
+import { useEffect } from 'react';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Link, BrowserRouter, Routes, Route} from "react-router-dom"; 
 import Home from '../Home';
 import StudentRecord from '../StudentRecord';
  
 
-function App() {
+function App({appToken}) {
+  const states = useSelector((initState) => initState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    userInformations(); 
+  },[])
+
+  const userInformations = () => {
+    dispatch({type: Actions.USER_TOKEN, token: appToken});
+  }
+
+
+
   return (
     <MainLayout>   
       <Routes>
-        <Route path="/page" element={<Home/>}/>
+        <Route path="/page" element={<Home pathname={location.pathname}/>}/>
         <Route path="/page/home" element={<Home/>}/>
         <Route path="/page/student_record" element={<StudentRecord/>}/>
         <Route path="*" element={<NoMatch/>}/>
@@ -32,11 +47,12 @@ function NoMatch() {
     </section>
   );
 }
-export default function RouteNavigation() {
+export default function RouteNavigation(props) {
+  
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <App/>
+        <App {...props}/>
       </BrowserRouter>
     </Provider>
   )

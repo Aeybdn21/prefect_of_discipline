@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+
 
 export default function SideBar() {
 
+    const location = useLocation();
     useEffect(() => {
         hanldeOnchange();
     },[]);
@@ -10,7 +13,7 @@ export default function SideBar() {
 
     const hanldeOnchange = () => {
         const selectedMenu = $('.isActive');
-        for(let x=0;x < selectedMenu.length; x ++) { 
+        for(let x=0; x < selectedMenu.length; x ++) { 
             $(selectedMenu[x]).on('click', function(){
                 $($(selectedMenu).children()).removeClass('text-black'); 
                 $(selectedMenu).removeClass('bg-white');
@@ -19,8 +22,13 @@ export default function SideBar() {
                 $(parentClass[0]).addClass('text-black');
                 $(parentClass[1]).addClass('text-black');
             });
-        }
+            const currentRoute = selectedMenu[x].href.replace(window.location.origin, '');
+            if(currentRoute == location.pathname){   
+                $($(selectedMenu[x]).addClass('bg-white').children()).addClass('text-black')
+            } 
+        }  
     }
+    
     
   return (
     <div className="sidebar close rounded shadow">

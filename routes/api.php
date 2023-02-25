@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\HomeController;
+use App\Http\Controllers\Main\StudentRecord;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware(['auth:api', 'scope:admin-side'])->group(function() {
-    Route::post('testing', [HomeController::class, 'test']);
+// Route::middleware(['auth:api', 'scope:admin-side'])->group(function() {
+//     Route::post('testing', [HomeController::class, 'test']);
+// });
+
+Route::middleware(['auth:api'])->group(function(){
+    Route::prefix('v1')->group(function() {
+        Route::get('registrar_student_list', [StudentRecord::class, 'registrar_records'])->name('registrar_student_list');
+    });
 });

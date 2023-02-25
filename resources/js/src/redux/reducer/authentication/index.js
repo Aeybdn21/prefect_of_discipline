@@ -7,7 +7,8 @@ const initState = {
     success: false,
     loading: false,
     lastUpdate: '',
-    message: ''
+    message: '',
+    token: '',
 }
 
 export const userInfo = (state = initState, action ) => {
@@ -16,8 +17,11 @@ export const userInfo = (state = initState, action ) => {
             return {...state, loading: true, message: action.message, lastUpdate: moment().format('MMM dd, YYYY hh:mm A')};
         case Actions.USER_INFO_SUCCESS:
             return {...state, data: action.data, message: action.message,lastUpdate: moment().format('MMM dd, YYYY hh:mm A')}
+        case Actions.USER_TOKEN:
+            return {...state, token: action.token, message: action.message,lastUpdate: moment().format('MMM dd, YYYY hh:mm A')}
         case Actions.USER_INFO_ERROR:
             return {...state, data: action.data};
         default: return state;
     }
 } 
+

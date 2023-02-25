@@ -26,7 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Passport::tokensCan([ 
-            'admin-side' => 'admin-side',      // To trigger the error, remove the scope description.
+            'admin-side' => 'admin-side',   
+            'appUserToken' => 'appUserToken'
+            // To trigger the error, remove the scope description.
         ]); 
         // Passport::setDefaultScope([
         //     'admin-side', 
