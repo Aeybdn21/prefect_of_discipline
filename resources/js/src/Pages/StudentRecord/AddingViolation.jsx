@@ -13,9 +13,12 @@ function AddingViolation() {
     const [studentnumber, setStudentNumber] = useState('');
     const {token} = useSelector((initState) => initState.userInfo);  
     const dispatch = useDispatch();
+    
     const [isShow, setShow] = useState(false);
+
     const [searchList, setSearchList] = useState([]);
     const [oldsearch, setOldSearch] = useState([]);
+   
     const [isOffenses, setOffense] = useState({
         minor: false, major: false
     });
@@ -37,6 +40,14 @@ function AddingViolation() {
             setOldSearch(registrar_recordslist);
             setCategorize(categorize)
         }); 
+        window.document.addEventListener('click', (event) => {
+            setShow(false)
+        });
+        $(document).on('keyup', (evt) => {
+            if(evt.keyCode == 27){
+                setShow(false)
+            }
+        });
     }
  
     const handleOnchange = (event) => { 
@@ -79,6 +90,8 @@ function AddingViolation() {
                         dispatch({type: Actions.SET_LOADER, loading: false, display: false});
                     }, 2000);
                 }, 2000);
+            } else {
+                   dispatch({type: Actions.SET_LOADER, loading: false, display: false});
             }
         }).catch((error) => {
             console.log({error})
@@ -122,17 +135,17 @@ function AddingViolation() {
                 />
                 <div className={`absolute w-full bg-white left-0 max-h-32 overflow-y-auto mt-1 rounded-sm ${isShow && ' border border-black'} shadow-sm`}>
                     <ul className="w-full"> 
-                        {isShow && searchList.map((value, index) => (<li key={index} className='w-full py-2 px-3 flex flex-row'>
-                            <a className='flex-1 text-sm font-semibold' onClick={() => {
-                                setStudentNumber(value.Student_ID);
-                                console.log(value.Student_ID)
-                                setShow(false)
-                            }} href="#">{value.Student_ID}</a>
-                        </li>))}
-                        {searchList.length == 0 && isShow && <li>
-                            <div className="pl-4 py-3 text-slate-400 text-xs">Student number does not exists.</div>
-                        </li>
-                        }
+                        {isShow && searchList.map((value, index) => (
+                            <li key={index} className='w-full py-2 px-3 flex flex-row'>
+                                <a className='flex-1 text-sm font-semibold' onClick={() => {
+                                    setStudentNumber(value.Student_ID);
+                                    console.log(value.Student_ID)
+                                    setShow(false)
+                                }} href="#">{value.Student_ID}</a>
+                            </li>
+                        ))}
+
+                        {searchList.length == 0 && isShow && (<li><div className="pl-4 py-3 text-slate-400 text-xs">Student number does not exists.</div></li>)}
                     </ul>
                 </div>
             </label>

@@ -2,6 +2,7 @@ import React from 'react'
 import AddingViolation from './AddingViolation'
 import DeleteViolation from './DeleteViolation'
 import Record from './Record'
+import SanctionTabs from './SanctionTabs'
 
 export default function Index() {
   return (
@@ -67,7 +68,7 @@ export default function Index() {
           <AddingViolation/>
         </div>
         <div className="tab-pane fade" id="tabs-messages3" role="tabpanel" aria-labelledby="tabs-profile-tab3">
-          <DeleteViolation/>
+          <SanctionTabs/>
         </div>
       </div>
   </div>

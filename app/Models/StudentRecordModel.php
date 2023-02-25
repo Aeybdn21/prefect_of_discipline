@@ -13,7 +13,7 @@ class StudentRecordModel extends Model
     protected $table = "student_records";
     protected $guard = [];
  
-    protected $appends = ['offenses'];
+    protected $appends = ['offenses', 'status'];
 
     public function studentsInfo() {
        return $this->belongsTo(RegistrarStudentlist::class, "student_id", "Student_ID");
@@ -30,5 +30,9 @@ class StudentRecordModel extends Model
  
     public function getOffensesAttribute() {
         return $this->offense_id == 0? 'Minor Offense': 'Major Offense';
+    }
+
+    public function getStatusAttribute() {
+        return StudentStatus::where('id', $this->status_id)->select('description')->first();
     }
 }

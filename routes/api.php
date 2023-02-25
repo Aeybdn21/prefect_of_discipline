@@ -29,5 +29,6 @@ Route::middleware(['auth:api'])->group(function(){
         Route::get('registrar_student_list', [StudentRecord::class, 'registrar_records'])->name('registrar_student_list');
         Route::post('add_violation', [StudentRecord::class, 'add_violation'])->name('add_violations');
         Route::post('student_records', [StudentRecord::class, 'fetchStudentRecords'])->name('student_records');
+        Route::post('add_sanctions', [StudentRecord::class, 'sanctionRecords'])->name('add_sanctions');
     });
 });

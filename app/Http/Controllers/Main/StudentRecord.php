@@ -9,13 +9,19 @@ use App\Models\CategorizeCase;
 use App\Models\StudentRecordModel;
 use Illuminate\Support\Facades\Validator; 
 use Illuminate\Validation\ValidationException;
+use App\Models\Sanctions;
+use App\Models\SanctionRecords;
+
+
 
 class StudentRecord extends Controller
 {
     public function registrar_records() {
-        $registrar_recordslist = RegistrarStudentlist::all();
+        $registrar_recordslist = RegistrarStudentlist::whereNotIn('student_id', StudentRecordModel::where('status_id',null)->select('student_id')->pluck('student_id'))->get();
         $categorize = CategorizeCase::all();
-        return response()->json(compact('registrar_recordslist', 'categorize'));
+        $sanctions = Sanctions::get();
+        $student_record = StudentRecordModel::where('status_id', null) -> get();
+        return response()->json(compact('registrar_recordslist', 'categorize', 'sanctions', 'student_record'));
     }
 
     public function add_violation (Request $request) {
@@ -49,5 +55,32 @@ class StudentRecord extends Controller
             $query->select('id', 'description');
         }])->get();
         return response()->json(compact('student_records'));
+    }
+
+    public function sanctionRecords(Request $request) {
+        $validator = Validator::make($request->all(), [
+            "student_refid" => "required",
+            "sanction_id" => "required", 
+        ]);
+        $message = "";
+        $error = false;
+        $data=[];
+        if($validator->fails()) {
+            $error = true;
+            $message = "failed require fields.";
+            $data = $validator->errors()->all();
+            return response()->json(compact('message', 'error', 'data'));
+        }else {
+            
+            $sanction_record = new SanctionRecords;
+            if(!$sanction_record->where('studrec_id', $request->student_refid)->exists()) {
+                $sanction_record->studrec_id = $request->student_refid;
+                $sanction_record->sancat_id = $request->sanction_id;
+                $sanction_record->others = $request->others; 
+                $sanction_record->save();
+            }
+        }
+        
+        return response()->json(compact('message', 'error', 'data'));
     }
 }

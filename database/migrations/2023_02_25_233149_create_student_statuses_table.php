@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_records', function (Blueprint $table) {
+        Schema::create('student_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('student_id');
-            $table->integer('offense_id');
-            $table->integer('categorize_id');
-            $table->integer('status_id')->nullable();
-            $table->text('others')->nullable();
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_records');
+        Schema::dropIfExists('student_statuses');
     }
 };

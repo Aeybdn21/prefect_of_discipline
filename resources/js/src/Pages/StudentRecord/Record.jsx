@@ -60,6 +60,9 @@ export default function Record() {
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
                       offence
                     </th>
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
+                      status
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -70,8 +73,9 @@ export default function Record() {
                       <td>{value.students_info.Course}</td>
                       <td></td>
                       <td>{value.violations.id == 6 ? value.others: value.violations.description}</td>
-                      <td>{value.sanctions?.sancat_id == 4 ? value.sanctions?.other : value.sanctions?.sanction_desc}</td>
+                      <td>{value.sanctions?.sancat_id == 4 ? value.sanctions?.other : value.sanctions?.sanction_desc || value.sanctions == null && 'Pending'}</td>
                       <td>{value.offenses}</td>
+                      <td>{value.status !== null ? value.status.description : '-----'}</td>
                     </tr>
                     )
                   )}

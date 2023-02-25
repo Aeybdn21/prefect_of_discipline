@@ -2,6 +2,8 @@ import { Head } from '@inertiajs/react';
 import React from 'react' 
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
+import ModalForm from '../components/ModalForm';
+import ModalNew from '../components/ModalNew';
 import { useScript } from '../hooks/useScript';
 import Navbar from './Navbar'
 import SideBar from './SideBar' 
@@ -25,6 +27,7 @@ function MainLayout({children}) {
           </div>
       </main> 
       <Loader {...states}/>
+      {/* <ModalForm /> */}
     </>
   );
 }
