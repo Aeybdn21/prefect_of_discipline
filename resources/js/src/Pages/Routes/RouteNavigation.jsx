@@ -9,16 +9,17 @@ import Home from '../Home';
 import StudentRecord from '../StudentRecord';
  
 
-function App({appToken}) {
+function App({appToken, information}) {
   const states = useSelector((initState) => initState);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    userInformations(); 
+    userInformations();  
   },[])
 
-  const userInformations = () => {
+  const userInformations = () => { 
     dispatch({type: Actions.USER_TOKEN, token: appToken});
+    dispatch({type: Actions.USER_INFO_SUCCESS, data: information})
   }
 
 
@@ -26,7 +27,7 @@ function App({appToken}) {
   return (
     <MainLayout>   
       <Routes>
-        <Route path="/page" element={<Home pathname={location.pathname}/>}/>
+        <Route path="/page" element={<Home/>}/>
         <Route path="/page/home" element={<Home/>}/>
         <Route path="/page/student_record" element={<StudentRecord/>}/>
         <Route path="*" element={<NoMatch/>}/>

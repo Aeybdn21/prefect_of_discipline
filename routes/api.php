@@ -27,5 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware(['auth:api'])->group(function(){
     Route::prefix('v1')->group(function() {
         Route::get('registrar_student_list', [StudentRecord::class, 'registrar_records'])->name('registrar_student_list');
+        Route::post('add_violation', [StudentRecord::class, 'add_violation'])->name('add_violations');
+        Route::post('student_records', [StudentRecord::class, 'fetchStudentRecords'])->name('student_records');
     });
 });

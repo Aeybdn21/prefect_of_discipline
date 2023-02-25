@@ -41,7 +41,7 @@ export default function Login() {
                     <div className="m-auto">
                         <div className="form-header1 ps-2 mb-5">
                             <h1 className="header1 fw-bold fs-1 m-0">BCP</h1>
-                            <h1 className="header2 fw-bold fs-1 m-0">PREFECT DISCIPLINE SYSTEM</h1>
+                            <h1 className="header2 fw-bold fs-1 m-0">PREFECT OF DISCIPLINE</h1>
                         </div>
                         <form onSubmit={handleSubmit}>
                             <span className="loginLineBreak my-4"></span>

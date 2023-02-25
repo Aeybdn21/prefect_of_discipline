@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux'
-
+import axios from 'axios';
 export default function Record() {
 
   const selector = useSelector((initState) => initState);
+  const [renderDataRecordStudent, setRenderDataRecordStudent] = useState([]);
 
-  const handleSearchButton = () => {
-    console.log({selector})
+  useEffect(() => {
+    handleFetchStudents();
+  }, [selector.loaderComponent.loading])
+
+  const handleFetchStudents = () => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${selector.userInfo.token}`;
+    axios.post(route('student_records')).then(({data}) => {
+      const response = data;
+      setRenderDataRecordStudent(response.student_records); 
+    });
   }
 
 
@@ -33,11 +43,8 @@ export default function Record() {
                       Student number
                     </th>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
-                      last name
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
-                      first name
-                    </th>
+                      Full name
+                    </th> 
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
                       strand/course
                     </th>
@@ -48,7 +55,7 @@ export default function Record() {
                       violation
                     </th>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
-                      sunction
+                      sanctions
                     </th>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-3 text-left uppercase">
                       offence
@@ -56,13 +63,25 @@ export default function Record() {
                   </tr>
                 </thead>
                 <tbody>
-                   <tr>
+                  {renderDataRecordStudent.map((value, index) =>(
+                    <tr key={index}>
+                      <td>{value.student_id}</td>
+                      <td>{value.students_info.Lastname}, {value.students_info.Firstname} {value.students_info.Middlename}.</td> 
+                      <td>{value.students_info.Course}</td>
+                      <td></td>
+                      <td>{value.violations.id == 6 ? value.others: value.violations.description}</td>
+                      <td>{value.sanctions?.sancat_id == 4 ? value.sanctions?.other : value.sanctions?.sanction_desc}</td>
+                      <td>{value.offenses}</td>
+                    </tr>
+                    )
+                  )}
+                   {/* <tr>
                     <td colSpan={8}>
                       <div>
                         
                       </div>
                     </td>
-                   </tr>
+                   </tr> */}
                 </tbody>
               </table>
             </div>

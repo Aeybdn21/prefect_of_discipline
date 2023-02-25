@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\CategorizeCase;
+use App\Models\Sanctions;
 
-class DefaultValues extends Seeder
+class DefaultSanctions extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class DefaultValues extends Seeder
      */
     public function run()
     {
-        $categorize = ["BULLYING", "INJURY", "DRUGS", "VANDALISM", "COUNSELING", "OTHERS"];
-        foreach ($categorize as $key => $value) {
-            CategorizeCase::create([
+        $sanctions = ["COMMUNITY SERVICE", "EXPEL", "DROP-OUT", "OTHERS"];
+        foreach($sanctions as $key => $value) {
+            Sanctions::create([
                 "description" => $value
             ]);
         }

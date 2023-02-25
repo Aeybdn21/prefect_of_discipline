@@ -18,8 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $appToken = Auth::user()->createToken('adminToken', ['appUserToken'])->accessToken;
-
-        return Inertia::render('Routes/RouteNavigation', compact('appToken'));
+        $information = Auth::user();
+        return Inertia::render('Routes/RouteNavigation', compact('appToken', 'information'));
     }
 
     

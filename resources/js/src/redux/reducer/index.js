@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import {userInfo} from './authentication';
+import { loaderComponent } from './components';
 
 const rootReducer = combineReducers({
-    userInfo
+    userInfo,
+    loaderComponent
 });
 
 export default rootReducer;

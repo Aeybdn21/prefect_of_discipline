@@ -1,12 +1,15 @@
 import { Head } from '@inertiajs/react';
-import React from 'react'
-import { Outlet } from 'react-router-dom';
+import React from 'react' 
+import { useSelector } from 'react-redux';
+import Loader from '../components/Loader';
 import { useScript } from '../hooks/useScript';
 import Navbar from './Navbar'
-import SideBar from './SideBar'
+import SideBar from './SideBar' 
 
 function MainLayout({children}) {
-    
+  
+  const states = useSelector((initState) => initState.loaderComponent);
+ 
   useScript();
 
   return (
@@ -21,6 +24,7 @@ function MainLayout({children}) {
             {children}
           </div>
       </main> 
+      <Loader {...states}/>
     </>
   );
 }

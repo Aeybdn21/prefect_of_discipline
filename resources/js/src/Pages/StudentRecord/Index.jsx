@@ -56,23 +56,6 @@ export default function Index() {
           my-2
           hover:border-transparent hover:bg-gray-100
           focus:border-transparent" id="tabs-messages-tab3" data-bs-toggle="pill" data-bs-target="#tabs-messages3" role="tab"
-          aria-controls="tabs-messages3" aria-selected="false">deleting violation</a>
-      </li>
-      <li className="nav-item" role="presentation">
-        <a href="#tabs-messages3" className="
-          nav-link
-          w-full
-          block
-          font-medium
-          text-xs
-          leading-tight
-          uppercase
-          border-x-0 border-t-0 border-b-2 border-transparent
-          px-6
-          py-3
-          my-2
-          hover:border-transparent hover:bg-gray-100
-          focus:border-transparent" id="tabs-messages-tab3" data-bs-toggle="pill" data-bs-target="#tabs-messages3" role="tab"
           aria-controls="tabs-messages3" aria-selected="false">sanction and punishment</a>
       </li>
     </ul>
