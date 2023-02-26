@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Head, useForm } from "@inertiajs/react";
 import Loading from "@/src/components/Loading";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 
-export default function Login() {
+export default function Login() { 
     const [isOpenEye, setOpenEye] = useState(false);
     const {setData, data, post, processing, errors} = useForm({
         email: '',
@@ -21,7 +23,7 @@ export default function Login() {
     const hanldeOnchange = (e) => {
         setData(e.target.name, e.target.value);
     }
-
+ 
 
     return (<>
         <Head>

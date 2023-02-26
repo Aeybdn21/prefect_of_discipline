@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import React from 'react' 
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import ModalForm from '../components/ModalForm';
@@ -26,8 +27,7 @@ function MainLayout({children}) {
             {children}
           </div>
       </main> 
-      <Loader {...states}/>
-      {/* <ModalForm /> */}
+      <Loader {...states}/> 
     </>
   );
 }

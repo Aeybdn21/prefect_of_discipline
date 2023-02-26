@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import axios from 'axios';
+import ModalForm from '@/src/components/ModalForm';
+import Loader from '@/src/components/Loader';
 export default function Record() {
 
   const selector = useSelector((initState) => initState);
@@ -20,7 +22,7 @@ export default function Record() {
   }
 
 
-  return ( 
+  return ( <>
       <div className="flex flex-col px-8">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 ">
           <div className="py-3 inline-block min-w-full sm:px-6 lg:px-8">
@@ -92,5 +94,7 @@ export default function Record() {
           </div>
         </div>
       </div> 
+      {/* <ModalForm /> */} 
+  </>
   )
 }

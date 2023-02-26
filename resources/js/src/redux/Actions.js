@@ -4,5 +4,7 @@ export const Actions = {
     USER_INFO_ERROR: 'USER_INFO_ERROR',
 
     USER_TOKEN: 'USER_TOKEN',
-    SET_LOADER: 'SET_LOADER'
+    SET_LOADER: 'SET_LOADER',
+
+    USER_LOGOUT: 'USER_LOGOUT'
 }

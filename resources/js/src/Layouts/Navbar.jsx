@@ -1,11 +1,12 @@
 import { Link } from '@inertiajs/react'
 import React from 'react'
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { Actions } from '../redux/Actions';
 
 export default function Navbar() {
     const {email} = useSelector((initState) => initState.userInfo.data);
-    
+    const dispatch = useDispatch();
     return (
     <ul className="topbar m-0 list-unstyled">
         <div className="topbarChild d-flex justify-content-between align-items-center">
@@ -31,12 +32,12 @@ export default function Navbar() {
                         <img className="ms-0 ms-sm-3" src="/assets/image/man.png" width="32" height="32" alt="profile-picture"/>
                         </a>
                         <ul className="dropdown-menu border shadow dropdownContainer">
-                        <li><a className="dropdown-item" href="#">Edit Profile</a></li>
-                        <li><a className="dropdown-item" href="#">Settings</a></li>
-                        <li><hr className="dropdown-divider" /></li>
-                        <li> 
-                            <Link href={route('logout')} className="dropdown-item" as="button" method="post">Logout</Link>
-                        </li>
+                            <li><a className="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a className="dropdown-item" href="#">Settings</a></li>
+                            <li><hr className="dropdown-divider" /></li>
+                            <li> 
+                                <Link href={route('logout')} className="dropdown-item" as="button" method="post" onClick={() => dispatch({type: Actions.USER_LOGOUT})}>Logout</Link>
+                            </li>
                         </ul>
                     </div>
                 </li>

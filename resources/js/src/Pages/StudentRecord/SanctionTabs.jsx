@@ -1,10 +1,10 @@
-import ModalNew from '@/src/components/ModalNew';
-import { Actions } from '@/src/redux/Actions';
+import ModalNew from '@/src/components/ModalNew'; 
 import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
+import { loadingFalse, loadingFalseAnimated, loadingTrue } from '@/src/redux/actions/loader';
 
 function SanctionTabs() {
   const dispatch = useDispatch();
@@ -36,13 +36,13 @@ function SanctionTabs() {
     } 
     setStudentNumber(eventValue); 
   }
+
  const mountedValue = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         axios.get(route('registrar_student_list')).then((response) =>{ 
             const {student_record, sanctions} = response.data; 
             setSearchList(student_record);
-            setOldSearch(student_record); 
-            console.log({student_record})
+            setOldSearch(student_record);  
             setSanctions(sanctions);
         }); 
         window.document.addEventListener('click', (event) => {
@@ -67,18 +67,13 @@ function SanctionTabs() {
       others: isTextArea,
     }
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    dispatch({type: Actions.SET_LOADER, loading: true, display: true});
-    axios.post(route('add_sanctions'), payload).then((response) => {
+    dispatch(loadingTrue());
+    axios.post(route('add_sanctions'), payload).then(async (response) => {
       if(!response.data.error) {
-        setTimeout(() => {
-            dispatch({type: Actions.SET_LOADER, loading: false, display: true});
-            setTimeout(() => {
-                dispatch({type: Actions.SET_LOADER, loading: false, display: false});
-            }, 2000);
-        }, 2000);
-    } else {
-           dispatch({type: Actions.SET_LOADER, loading: false, display: false});
-    }
+          await dispatch(loadingFalseAnimated());
+      } else {
+          dispatch(loadingFalse());
+      }
     });
   }
   const handlebuttonOn = () => {
@@ -91,7 +86,8 @@ function SanctionTabs() {
         }, 
         applyButton
     });
-}
+  }
+
   return (<>
     <div className="mx-8 mt-4">
         <div className="flex">

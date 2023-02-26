@@ -1,12 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
-import { useForm } from '@inertiajs/react';
+import { useState } from 'react'; 
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import ModalNew from '@/src/components/ModalNew';
-import Loader from '@/src/components/Loader';
-import { Actions } from '@/src/redux/Actions';
+import ModalNew from '@/src/components/ModalNew';    
+import { loadingFalse, loadingFalseAnimated, loadingTrue } from '@/src/redux/actions/loader';
 
 
 function AddingViolation() {
@@ -81,17 +79,13 @@ function AddingViolation() {
             categorize_case: parseInt(categorizeSelected),
             others: isTextArea
         }; 
-        dispatch({type: Actions.SET_LOADER, loading: true, display: true});
-        axios.post(route('add_violations'), payload).then((response) => {
+        dispatch(loadingTrue());
+        axios.post(route('add_violations'), payload).then(async (response) => {
             if(!response.data.error) {
-                setTimeout(() => {
-                    dispatch({type: Actions.SET_LOADER, loading: false, display: true});
-                    setTimeout(() => {
-                        dispatch({type: Actions.SET_LOADER, loading: false, display: false});
-                    }, 2000);
-                }, 2000);
+                const finishloading = await dispatch(loadingFalseAnimated());
+                console.log(finishloading)
             } else {
-                   dispatch({type: Actions.SET_LOADER, loading: false, display: false});
+                dispatch(loadingFalse());
             }
         }).catch((error) => {
             console.log({error})
@@ -179,7 +173,7 @@ function AddingViolation() {
         {categorizeSelected == 6 && <div className="mb-3 xl:w-96" >
             <label htmlFor="exampleFormControlInput1" className="form-label inline-block mb-2 text-gray-700 uppercase text-xs font-bold">Please Specify</label>
             <textarea type="text" onChange={(event) => setTextArea(event.target.value)} className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border 
-                border-slate-300 rounded-md py-1.5 pr-3  focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                border-slate-300 rounded-md py-1.5 pr-3  focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm h-28"
                 id="exampleFormControlInput1" 
             />
         </div>}
