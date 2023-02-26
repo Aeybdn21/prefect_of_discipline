@@ -13,7 +13,7 @@ class StudentRecordModel extends Model
     protected $table = "student_records";
     protected $guard = [];
  
-    protected $appends = ['offenses', 'status'];
+    protected $appends = ['offenses', 'status', 'year_section'];
 
     public function studentsInfo() {
        return $this->belongsTo(RegistrarStudentlist::class, "student_id", "Student_ID");
@@ -25,6 +25,10 @@ class StudentRecordModel extends Model
 
     public function sanctions() {
         return $this->hasOne(SanctionRecords::class, "studrec_id", "id");
+    }
+
+    public function getYearSectionAttribute(){
+        return RegistrarStudentSection::where('Student_ID', $this->student_id)->select('Year_Level', 'Section')->first();
     }
  
     public function getOffensesAttribute() {

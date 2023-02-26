@@ -39,7 +39,7 @@ export default function Record() {
 
   return ( 
     <>
-    <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div className="overflow-auto rounded-lg border border-gray-200 shadow-md m-5">
       <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
         <thead className="bg-gray-50">
           <tr>
@@ -69,7 +69,11 @@ export default function Record() {
             <td className="px-6 py-4"> 
               {value.students_info.Course}
             </td>
-            <td className="px-6 py-4"> 
+            <td className="px-6 py-4 "> 
+              <div className="text-sm">
+                <div className="font-medium text-gray-700">Year: {value.year_section.Year_Level}</div>
+                <div className="text-gray-400">Section: {value.year_section.Section}</div>
+              </div>
             </td>
             <td className="px-6 py-4"> 
               {value.violations.id == 6 ? value.others: value.violations.description}

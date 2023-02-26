@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Models\Sanctions;
 use App\Models\SanctionRecords;
-use App\Modles\StudentStatus;
+use App\Models\StudentStatus;
 
 
 class StudentRecord extends Controller
