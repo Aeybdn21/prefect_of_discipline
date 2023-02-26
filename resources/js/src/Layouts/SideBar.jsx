@@ -27,8 +27,7 @@ export default function SideBar() {
                 $($(selectedMenu[x]).addClass('bg-white').children()).addClass('text-black')
             } 
         }  
-    }
-    
+    } 
     
   return (
     <div className="sidebar close rounded shadow">
@@ -53,14 +52,14 @@ export default function SideBar() {
                 <span className="tooltip uppercase">student record</span>
             </li>
             <li>
-                <a href="/" className="isActive">
+                <a href="#" className="isActive">
                     <i className='bx bx-collection' ></i>
                     <span className="links_name uppercase">confiscated items</span>
                 </a>
                 <span className="tooltip uppercase">confiscated items</span>
             </li>
             <li>
-                <a href="/" className="isActive">
+                <a href="#" className="isActive">
                 <i className='bx bx-bar-chart-alt-2' ></i>
                  <span className="links_name uppercase">reports</span>
                 </a>

@@ -20,7 +20,7 @@ function MainLayout({children}) {
       <Head>
         <title>Home page</title> 
       </Head> 
-      <main className="container-lg container-xl container-xxl">
+      <main className="container-lg container-xl container-xxl py-3">
           <Navbar/>
           <div className="px-0 d-xl-flex position-relative d-flex">
             <SideBar/>

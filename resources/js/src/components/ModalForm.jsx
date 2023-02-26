@@ -5,7 +5,7 @@ import { Dialog, Transition } from '@headlessui/react'
 function ModalForm(prop) { 
     const { 
         okbuttonText = "UPDATE", 
-        isVisible = true, 
+        isVisible = false, 
         cancelButton = () => {},
         applyButton = () => {}
     } = prop;
@@ -55,7 +55,7 @@ function ModalForm(prop) {
                                 defaultValue={19018110}/> 
                         </label>
                     </div>
-                   <div className="flex p-2">
+                   <div className="flex p-2 my-2">
                         <input id="link-checkbox" type="checkbox" value={0}  
                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 
                         rounded focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"/>

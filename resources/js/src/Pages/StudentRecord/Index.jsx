@@ -1,76 +1,87 @@
 import React from 'react'
-import AddingViolation from './AddingViolation'
-import DeleteViolation from './DeleteViolation'
+import AddingViolation from './AddingViolation' 
 import Record from './Record'
 import SanctionTabs from './SanctionTabs'
+import { Tab } from '@headlessui/react'
+ 
 
-export default function Index() {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function Index() { 
+
   return (
-    <div className="mx-3 bg-white rounded shadow overflow-hidden flex-1 p-4">
-      <ul className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0" id="tabs-tab3" role="tablist">
-      <li className="nav-item" role="presentation">
-        <a href="#tabs-home3" className="
-          nav-link
-          w-full
-          block
-          font-medium
-          text-xs
-          leading-tight
-          uppercase
-          border-x-0 border-t-0 border-b-2 border-transparent
-          px-6
-          py-3
-          my-2
-          hover:border-transparent hover:bg-gray-100
-          focus:border-transparent
-          active" id="tabs-home-tab3" data-bs-toggle="pill" data-bs-target="#tabs-home3" role="tab" aria-controls="tabs-home3"
-          aria-selected="true">student record</a>
-      </li>
-      <li className="nav-item" role="presentation">
-        <a href="#tabs-profile3" className="nav-link
-          w-full
-          block
-          font-medium
-          text-xs
-          leading-tight
-          uppercase
-          border-x-0 border-t-0 border-b-2 border-transparent
-          px-6
-          py-3
-          my-2
-          hover:border-transparent hover:bg-gray-100
-          focus:border-transparent" id="tabs-profile-tab3" data-bs-toggle="pill" data-bs-target="#tabs-profile3" role="tab"
-          aria-controls="tabs-profile3" aria-selected="false">adding violation</a>
-      </li>
-      <li className="nav-item" role="presentation">
-        <a href="#tabs-messages3" className="
-          nav-link
-          w-full
-          block
-          font-medium
-          text-xs
-          leading-tight
-          uppercase
-          border-x-0 border-t-0 border-b-2 border-transparent
-          px-6
-          py-3
-          my-2
-          hover:border-transparent hover:bg-gray-100
-          focus:border-transparent" id="tabs-messages-tab3" data-bs-toggle="pill" data-bs-target="#tabs-messages3" role="tab"
-          aria-controls="tabs-messages3" aria-selected="false">sanction and punishment</a>
-      </li>
-    </ul>
-      <div className="tab-content" id="tabs-tabContent3">
-        <div className="tab-pane fade show active" id="tabs-home3" role="tabpanel" aria-labelledby="tabs-home-tab3">
-         <Record/>
-        </div>
-        <div className="tab-pane fade" id="tabs-profile3" role="tabpanel" aria-labelledby="tabs-profile-tab3">
-          <AddingViolation/>
-        </div>
-        <div className="tab-pane fade" id="tabs-messages3" role="tabpanel" aria-labelledby="tabs-profile-tab3">
-          <SanctionTabs/>
-        </div>
-      </div>
-  </div>
+    <div className="w-full px-2 py-16 sm:px-0 mx-3 bg-white rounded">
+      <Tab.Group>
+        <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1 max-w-xl "> 
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  selected
+                    ? 'bg-white shadow'
+                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                )
+              }
+            >
+              Student Record
+            </Tab>
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  selected
+                    ? 'bg-white shadow'
+                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                )
+              }
+            >
+              Adding Violation
+            </Tab>
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  selected
+                    ? 'bg-white shadow'
+                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                )
+              }
+            >
+            Sanction & Punishment
+            </Tab>
+        </Tab.List>
+        <Tab.Panels className="mt-2">
+            <Tab.Panel 
+              className={classNames(
+                'rounded-xl bg-white',
+                'ring-white ring-opacity-60  '
+              )}
+            >
+               <Record/>
+            </Tab.Panel> 
+            <Tab.Panel 
+              className={classNames(
+                'rounded-xl bg-white ',
+                'ring-white '
+              )}
+            >
+             <AddingViolation/>
+            </Tab.Panel> 
+            <Tab.Panel 
+              className={classNames(
+                'rounded-xl bg-white ',
+                'ring-white '
+              )}
+            >
+              <SanctionTabs/>
+            </Tab.Panel> 
+        </Tab.Panels>
+      </Tab.Group>
+    </div>
   )
 }
