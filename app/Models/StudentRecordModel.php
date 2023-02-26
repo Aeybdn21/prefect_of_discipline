@@ -19,7 +19,6 @@ class StudentRecordModel extends Model
        return $this->belongsTo(RegistrarStudentlist::class, "student_id", "Student_ID");
     }
     
-
     public function violations () {
         return $this->hasOne(CategorizeCase::class, "id", "categorize_id");
     }

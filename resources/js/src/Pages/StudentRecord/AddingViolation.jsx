@@ -33,10 +33,10 @@ function AddingViolation() {
     const mountedValue = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         axios.get(route('registrar_student_list')).then((response) =>{ 
-            const {registrar_recordslist, categorize} = response.data; 
+            const {registrar_recordslist, categorize, status} = response.data; 
             setSearchList(registrar_recordslist);
             setOldSearch(registrar_recordslist);
-            setCategorize(categorize)
+            setCategorize(categorize); 
         }); 
         window.document.addEventListener('click', (event) => {
             setShow(false)

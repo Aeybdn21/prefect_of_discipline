@@ -56,7 +56,7 @@ export default function Record() {
         </thead>
         <tbody className="divide-y divide-gray-100 border-t border-gray-100">
           {renderDataRecordStudent.map((value, index) => 
-          <tr className="hover:bg-gray-50">
+          <tr className="hover:bg-gray-50" key={index}>
             <td className="px-12 py-4">
               <div className="font-bold">{value.student_id}</div>
             </td>

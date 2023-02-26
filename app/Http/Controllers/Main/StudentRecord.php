@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Models\Sanctions;
 use App\Models\SanctionRecords;
-
+use App\Modles\StudentStatus;
 
 
 class StudentRecord extends Controller
@@ -20,8 +20,9 @@ class StudentRecord extends Controller
         $registrar_recordslist = RegistrarStudentlist::whereNotIn('student_id', StudentRecordModel::where('status_id',null)->select('student_id')->pluck('student_id'))->get();
         $categorize = CategorizeCase::all();
         $sanctions = Sanctions::get();
+        $statuses = StudentStatus::get();
         $student_record = StudentRecordModel::where('status_id', null) -> get();
-        return response()->json(compact('registrar_recordslist', 'categorize', 'sanctions', 'student_record'));
+        return response()->json(compact('registrar_recordslist', 'categorize', 'sanctions', 'student_record', 'statuses'));
     }
 
     public function add_violation (Request $request) {
