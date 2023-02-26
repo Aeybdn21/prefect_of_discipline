@@ -70,10 +70,7 @@ export default function Record() {
               {value.students_info.Course}
             </td>
             <td className="px-6 py-4 "> 
-              <div className="text-sm">
-                <div className="font-medium text-gray-700">Year: {value.year_section.Year_Level}</div>
-                <div className="text-gray-400">Section: {value.year_section.Section}</div>
-              </div>
+                <div className="text-gray-400">{value.year_section.Section}</div>
             </td>
             <td className="px-6 py-4"> 
               {value.violations.id == 6 ? value.others: value.violations.description}
