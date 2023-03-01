@@ -34,6 +34,7 @@ function ModalForm(prop) {
         setCategorizeSelected(params?.violations.id)
         setStatus(params.status_id)
         setMessage(params.message); 
+        setTextArea(params.others)
       }
     }, [isVisible])
     

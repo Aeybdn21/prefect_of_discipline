@@ -4,7 +4,7 @@
     "src": "resources/js/app.css"
   },
   "resources/js/src/Pages/Home/Index.jsx": {
-    "file": "assets/Index-b9b64f01.js",
+    "file": "assets/Index-3dd18a21.js",
     "src": "resources/js/src/Pages/Home/Index.jsx",
     "isDynamicEntry": true,
     "imports": [
@@ -13,8 +13,8 @@
       "resources/js/src/Pages/Home/Utils.jsx"
     ]
   },
-  "_index-2da82bf8.js": {
-    "file": "assets/index-2da82bf8.js",
+  "_index-2b454ea9.js": {
+    "file": "assets/index-2b454ea9.js",
     "imports": [
       "resources/js/app.jsx",
       "_index-dcfd7a56.js"
@@ -23,110 +23,110 @@
   "_index-dcfd7a56.js": {
     "file": "assets/index-dcfd7a56.js"
   },
-  "resources/js/src/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-b5034eb0.js",
-    "src": "resources/js/src/Pages/Auth/Login.jsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.jsx",
-      "_index-2da82bf8.js",
-      "_index-dcfd7a56.js"
-    ]
-  },
   "resources/js/src/Pages/Home/Utils.jsx": {
     "file": "assets/Utils-bd3f3493.js",
     "src": "resources/js/src/Pages/Home/Utils.jsx",
     "isDynamicEntry": true
   },
-  "_ModalNew-2eba6663.js": {
-    "file": "assets/ModalNew-2eba6663.js",
+  "resources/js/src/Pages/Auth/Login.jsx": {
+    "file": "assets/Login-35d3ec16.js",
+    "src": "resources/js/src/Pages/Auth/Login.jsx",
+    "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_index-b513e2a2.js"
+      "_index-2b454ea9.js",
+      "_index-dcfd7a56.js"
+    ]
+  },
+  "resources/js/src/Pages/StudentRecord/AddingViolation.jsx": {
+    "file": "assets/AddingViolation-794b4fa4.js",
+    "src": "resources/js/src/Pages/StudentRecord/AddingViolation.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-2b454ea9.js",
+      "_ModalNew-fee639f3.js",
+      "_index-1e7c3f40.js",
+      "_index-dcfd7a56.js"
+    ]
+  },
+  "resources/js/src/Pages/StudentRecord/Index.jsx": {
+    "file": "assets/Index-52d950f9.js",
+    "src": "resources/js/src/Pages/StudentRecord/Index.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/src/Pages/StudentRecord/AddingViolation.jsx",
+      "_Record-5a25ed86.js",
+      "resources/js/src/Pages/StudentRecord/SanctionTabs.jsx",
+      "_tabs-14fb787f.js",
+      "_index-2b454ea9.js",
+      "_index-dcfd7a56.js",
+      "_ModalNew-fee639f3.js",
+      "_index-1e7c3f40.js"
     ]
   },
   "resources/js/src/Pages/StudentRecord/DeleteViolation.jsx": {
-    "file": "assets/DeleteViolation-84fa3190.js",
+    "file": "assets/DeleteViolation-ec46444f.js",
     "src": "resources/js/src/Pages/StudentRecord/DeleteViolation.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "resources/js/src/Pages/StudentRecord/Index.jsx": {
-    "file": "assets/Index-bee628e7.js",
-    "src": "resources/js/src/Pages/StudentRecord/Index.jsx",
-    "isDynamicEntry": true,
+  "_tabs-14fb787f.js": {
+    "file": "assets/tabs-14fb787f.js",
     "imports": [
       "resources/js/app.jsx",
-      "resources/js/src/Pages/StudentRecord/AddingViolation.jsx",
-      "_Record-969d9e7c.js",
-      "resources/js/src/Pages/StudentRecord/SanctionTabs.jsx",
-      "_tabs-b16c8f78.js",
-      "_index-2da82bf8.js",
-      "_index-dcfd7a56.js",
-      "_ModalNew-2eba6663.js",
-      "_index-b513e2a2.js"
+      "_index-1e7c3f40.js"
     ]
   },
-  "resources/js/src/Pages/StudentRecord/AddingViolation.jsx": {
-    "file": "assets/AddingViolation-3bcd62e2.js",
-    "src": "resources/js/src/Pages/StudentRecord/AddingViolation.jsx",
-    "isDynamicEntry": true,
+  "_ModalNew-fee639f3.js": {
+    "file": "assets/ModalNew-fee639f3.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-2da82bf8.js",
-      "_ModalNew-2eba6663.js",
-      "_index-b513e2a2.js",
-      "_index-dcfd7a56.js"
+      "_index-1e7c3f40.js"
     ]
   },
   "resources/js/src/Pages/StudentRecord/SanctionTabs.jsx": {
-    "file": "assets/SanctionTabs-ed8c43b0.js",
+    "file": "assets/SanctionTabs-e4ad405a.js",
     "src": "resources/js/src/Pages/StudentRecord/SanctionTabs.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_ModalNew-2eba6663.js",
-      "_index-2da82bf8.js",
-      "_index-b513e2a2.js",
+      "_ModalNew-fee639f3.js",
+      "_index-2b454ea9.js",
+      "_index-1e7c3f40.js",
       "_index-dcfd7a56.js"
     ]
   },
-  "_tabs-b16c8f78.js": {
-    "file": "assets/tabs-b16c8f78.js",
+  "_index-1e7c3f40.js": {
+    "file": "assets/index-1e7c3f40.js",
     "imports": [
-      "resources/js/app.jsx",
-      "_index-b513e2a2.js"
-    ]
-  },
-  "_index-b513e2a2.js": {
-    "file": "assets/index-b513e2a2.js",
-    "imports": [
-      "_index-2da82bf8.js",
+      "_index-2b454ea9.js",
       "resources/js/app.jsx"
     ]
   },
   "resources/js/src/Pages/Routes/RouteNavigation.jsx": {
-    "file": "assets/RouteNavigation-db8d1b6e.js",
+    "file": "assets/RouteNavigation-4a5e1f72.js",
     "src": "resources/js/src/Pages/Routes/RouteNavigation.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_index-2da82bf8.js",
-      "_Record-969d9e7c.js",
-      "_index-b513e2a2.js",
+      "_index-2b454ea9.js",
+      "_Record-5a25ed86.js",
+      "_index-1e7c3f40.js",
       "_auto-d3cf1122.js",
       "resources/js/src/Pages/Home/Utils.jsx",
       "resources/js/src/Pages/StudentRecord/AddingViolation.jsx",
       "resources/js/src/Pages/StudentRecord/SanctionTabs.jsx",
-      "_tabs-b16c8f78.js",
+      "_tabs-14fb787f.js",
       "_index-dcfd7a56.js",
-      "_ModalNew-2eba6663.js"
+      "_ModalNew-fee639f3.js"
     ]
   },
   "resources/js/src/Pages/StudentRecord/components/ComboBox.jsx": {
-    "file": "assets/ComboBox-e57c2669.js",
+    "file": "assets/ComboBox-89c33b29.js",
     "src": "resources/js/src/Pages/StudentRecord/components/ComboBox.jsx",
     "isDynamicEntry": true,
     "imports": [
@@ -137,18 +137,18 @@
   "_auto-d3cf1122.js": {
     "file": "assets/auto-d3cf1122.js"
   },
-  "_Record-969d9e7c.js": {
-    "file": "assets/Record-969d9e7c.js",
+  "_Record-5a25ed86.js": {
+    "file": "assets/Record-5a25ed86.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_index-2da82bf8.js",
-      "_index-b513e2a2.js",
+      "_index-2b454ea9.js",
+      "_index-1e7c3f40.js",
       "_index-dcfd7a56.js"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-03f42229.js",
+    "file": "assets/app-80ec2a17.js",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "dynamicImports": [
@@ -159,7 +159,7 @@
       "resources/js/src/Pages/StudentRecord/AddingViolation.jsx",
       "resources/js/src/Pages/StudentRecord/DeleteViolation.jsx",
       "resources/js/src/Pages/StudentRecord/Index.jsx",
-      "_Record-969d9e7c.js",
+      "_Record-5a25ed86.js",
       "resources/js/src/Pages/StudentRecord/SanctionTabs.jsx",
       "resources/js/src/Pages/StudentRecord/components/ComboBox.jsx"
     ],
