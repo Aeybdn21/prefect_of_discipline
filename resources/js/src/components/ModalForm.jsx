@@ -59,6 +59,7 @@ function ModalForm(prop) {
     axios.post(route('update_student_info'), payload).then(async (response) => {
       if(!response.data.error) {
         const finishloading = await dispatch(loadingFalseAnimated()); 
+        // gesss
       }else {
         dispatch(loadingFalse());
       }
