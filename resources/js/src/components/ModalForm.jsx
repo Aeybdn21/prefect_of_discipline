@@ -33,8 +33,7 @@ function ModalForm(prop) {
         setOffense({minor: params.offense_id == 0 && true, major: params.offense_id == 1 && true});
         setCategorizeSelected(params?.violations.id)
         setStatus(params.status_id)
-        setMessage(params.message);
-        console.log({params})
+        setMessage(params.message); 
       }
     }, [isVisible])
     
@@ -161,7 +160,9 @@ function ModalForm(prop) {
                     </div> 
                     {categorizeSelected == 6 && <div className="mb-3 xl:w-96" >
                         <label htmlFor="exampleFormControlInput1" className="form-label inline-block mb-2 text-gray-700 uppercase text-xs font-bold">Please Specify</label>
-                        <textarea onChange={(event) => setTextArea(event.target.value)} type="text" placeholder="text here..." className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border 
+                        <textarea onChange={(event) => setTextArea(event.target.value)}
+                          defaultValue={params?.others}
+                        type="text" placeholder="text here..." className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border 
                             border-slate-300 rounded-md py-1.5 pr-3  focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm h-28"
                             id="exampleFormControlInput1" 
                         />
