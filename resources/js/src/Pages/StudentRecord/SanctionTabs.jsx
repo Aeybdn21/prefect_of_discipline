@@ -109,12 +109,11 @@ function SanctionTabs() {
                       <ul className="w-full"> 
                           {isShow && searchList.map((value, index) => (
                               <li key={index} className='w-full py-2 px-3 flex flex-row'>
-                                  <a className='flex-1 text-sm font-semibold' onClick={() => {
-                                      setStudentNumber(value.student_id);
-                                      console.log(value);
+                                  <a className='flex-1 text-sm font-semibold cursor-pointer' onClick={() => {
+                                      setStudentNumber(value.student_id); 
                                       setStudentId(value.id);
                                       setShow(false)
-                                  }} href="#">{value.student_id}</a>
+                                  }}>{value.student_id}</a>
                               </li>
                           ))}
 

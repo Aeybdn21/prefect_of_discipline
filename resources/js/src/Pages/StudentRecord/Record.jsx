@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 import axios from 'axios';
 import ModalForm from '@/src/components/ModalForm';
 import Loader from '@/src/components/Loader';
-import { DeleteIcon, PencilIcon } from '@/src/components/IconsTable';
+import { DeleteIcon, MessageIcon, PencilIcon } from '@/src/components/IconsTable';
+import ModalMessage from '@/src/components/ModalMessage';
 
 
 export default function Record() {
@@ -12,6 +13,7 @@ export default function Record() {
   const selector = useSelector((initState) => initState);
   const [renderDataRecordStudent, setRenderDataRecordStudent] = useState([]);
   const [isFormModal, setFormModal] = useState({});
+  const [isMessageModal, setMessageModal] = useState({});
 
 
   useEffect(() => {
@@ -26,12 +28,28 @@ export default function Record() {
     });
   }
 
-  const handlePencilEdit = () => {
+  const handlePencilEdit = (value) => {
     setFormModal((initState) => ({
       ...initState, 
       isVisible: true,
+      params: value,
       cancelButton: () => {
+        console.log({value})
         setFormModal((initstate) => ({...initstate, isVisible: false}));
+      }
+    }));
+  }
+
+  const handleMessageModal = (value) => {
+    setMessageModal((initState) => ({
+      ...initState,
+      isOpen: true,
+      message: value,
+      closeModal: () => {
+        setMessageModal((initState) => ({
+          ...initState, 
+          isOpen: false
+        }));
       }
     }));
   }
@@ -39,7 +57,7 @@ export default function Record() {
 
   return ( 
     <>
-    <div className="overflow-auto rounded-lg border border-gray-200 shadow-md m-5">
+    <div className="overflow-auto rounded-lg border border-gray-200 shadow">
       <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
         <thead className="bg-gray-50">
           <tr>
@@ -76,7 +94,7 @@ export default function Record() {
               {value.violations.id == 6 ? value.others: value.violations.description}
             </td>
             <td className="px-6 py-4">
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-center">
                 {value.sanctions?.sancat_id == 4 ? value.sanctions?.other : value.sanctions?.sanction_desc || value.sanctions == null && 'Pending'}
               </div>
             </td>
@@ -86,14 +104,15 @@ export default function Record() {
               </div>
             </td>
             <td className="px-6 py-4">
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-center gap-4 text-center">
                 {value.status !== null ? value.status.description : ' '}
               </div>
             </td>
             <td className="px-6 py-4">
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-end gap-3">
+                {value.message && <MessageIcon onClick={() => handleMessageModal(value.message)}/>}
                 <DeleteIcon/>
-                <PencilIcon onClick={handlePencilEdit}/>
+                <PencilIcon onClick={() => handlePencilEdit(value)}/>
               </div>
             </td>
           </tr>
@@ -102,6 +121,7 @@ export default function Record() {
       </table>
     </div>
     <ModalForm {...isFormModal}/>
+    <ModalMessage {...isMessageModal}/>
     </>
   )
 }

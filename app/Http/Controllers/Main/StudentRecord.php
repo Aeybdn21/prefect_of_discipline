@@ -84,4 +84,34 @@ class StudentRecord extends Controller
         
         return response()->json(compact('message', 'error', 'data'));
     }
+
+    public function updateStudentInfo (Request $request) {
+        $validator = Validator::make($request->all(), [
+            "student_id" => "required",
+            "offense" => "required",
+            "categorize_case" => "required",
+        ]);
+        $message = "";
+        $error = false;
+        $data=[];
+        if($validator->fails()) {
+            $error = true;
+            $message = "failed require fields.";
+            $data = $validator->errors()->all();
+            return response()->json(compact('message', 'error', 'data'));
+        }else {
+            $message = "Success Updated";
+            $student_record = StudentRecordModel::where('student_id', $request->student_id);
+            $student_record->update([
+                "offense_id" => $request->offense,
+                "categorize_id" => $request->categorize_case,
+                "status_id" => $request->status_id,
+                "others" => $request->others,
+                "message" => $request->message
+            ]);
+            
+        }
+        
+        return response()->json(compact('message', 'error', 'data'));
+    }
 }
