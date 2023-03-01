@@ -57,6 +57,11 @@ export default function Record() {
 
   return ( 
     <>
+    <div className="flex flex-row justify-end px-5 py-3">
+      <div className="my-auto search-boxContainer d-none d-lg-block">
+          <input type="text" className="form-control search-box"  placeholder="Search..." aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+      </div>
+    </div>
     <div className="overflow-auto rounded-lg border border-gray-200 shadow">
       <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
         <thead className="bg-gray-50">

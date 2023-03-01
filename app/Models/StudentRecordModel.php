@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class StudentRecordModel extends Model
 {
     use HasFactory;
-    protected $table = "student_records";
+    protected $table = "prefect_student_records";
     protected $guard = [];
  
     protected $appends = ['offenses', 'status', 'year_section'];

@@ -27,5 +27,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
         ]);
 
+        $this->call([
+            DefaultSanctions::class,
+            DefaultStatuses::class,
+            DefaultValues::class,
+            DefaultValueInvestigationStatuses::class
+        ]);
     }
 }

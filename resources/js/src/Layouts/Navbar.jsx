@@ -14,10 +14,8 @@ export default function Navbar() {
                 <div className="logo-details d-flex align-items-center">
                 <i className="bx bx-menu rounded-circle" id="btn"></i>
                 <img className="ms-2 ms-sm-3 my-auto rounded-full" src="/assets/gif/333386347_576911417489522_1333788561299837463_n.gif" width="35" height="35" alt="bcp-logo"/>
-                <div className="logo_name text-dark ms-1 ms-sm-3">BESTLINK</div>
-                    <div className="my-auto search-boxContainer d-none d-lg-block">
-                        <input type="text" className="form-control search-box"  placeholder="Search..." aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-                    </div>
+                <div className="logo_name text-dark ms-1 ms-sm-3">PREFECT OF DISCPLINE</div>
+                    
                 </div>
             </li>
             <div className="d-flex align-items-center justify-content-end">

@@ -9,7 +9,8 @@ use DB;
 class CategorizeCase extends Model
 {
     use HasFactory;
-
+    
+    protected $table = "prefect_categorize_cases";
     protected $guard = [];
 
 }

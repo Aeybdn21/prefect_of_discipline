@@ -9,7 +9,7 @@ use DB;
 class SanctionRecords extends Model
 {
     use HasFactory;
-    
+    protected $table = "prefect_sanction_records";
     protected $appends = ['sanction_desc'];
     protected $hidden = ['created_at', 'updated_at'];
 

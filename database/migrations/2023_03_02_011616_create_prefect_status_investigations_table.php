@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prefect_categorize_cases', function (Blueprint $table) {
+        Schema::create('prefect_status_investigations', function (Blueprint $table) {
             $table->id();
             $table->string('description');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prefect_categorize_cases');
+        Schema::dropIfExists('prefect_status_investigations');
     }
 };
