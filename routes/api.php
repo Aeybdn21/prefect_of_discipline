@@ -30,5 +30,6 @@ Route::middleware(['auth:api'])->group(function(){
         Route::post('add_violation', [StudentRecord::class, 'add_violation'])->name('add_violations');
         Route::post('student_records', [StudentRecord::class, 'fetchStudentRecords'])->name('student_records');
         Route::post('add_sanctions', [StudentRecord::class, 'sanctionRecords'])->name('add_sanctions');
+        Route::post('update_student_info', [StudentRecord::class, 'updateStudentInfo'])->name('update_student_info');
     });
 });

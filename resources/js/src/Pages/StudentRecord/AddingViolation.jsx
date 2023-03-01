@@ -33,10 +33,10 @@ function AddingViolation() {
     const mountedValue = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         axios.get(route('registrar_student_list')).then((response) =>{ 
-            const {registrar_recordslist, categorize, status} = response.data; 
+            const {registrar_recordslist, categorize, statuses} = response.data; 
             setSearchList(registrar_recordslist);
             setOldSearch(registrar_recordslist);
-            setCategorize(categorize); 
+            setCategorize(categorize);  
         }); 
         window.document.addEventListener('click', (event) => {
             setShow(false)
@@ -131,11 +131,12 @@ function AddingViolation() {
                     <ul className="w-full"> 
                         {isShow && searchList.map((value, index) => (
                             <li key={index} className='w-full py-2 px-3 flex flex-row'>
-                                <a className='flex-1 text-sm font-semibold' onClick={() => {
+                                <a className='flex-1 text-sm font-semibold cursor-pointer' onClick={(event) => {
+                                    event.preventDefault()
                                     setStudentNumber(value.Student_ID);
                                     console.log(value.Student_ID)
                                     setShow(false)
-                                }} href="#">{value.Student_ID}</a>
+                                }}>{value.Student_ID}</a>
                             </li>
                         ))}
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('categorize_id');
             $table->integer('status_id')->nullable();
             $table->text('others')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

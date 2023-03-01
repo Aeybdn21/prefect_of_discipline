@@ -55,7 +55,7 @@ export default function Index() {
             Sanction & Punishment
             </Tab>
         </Tab.List>
-        <Tab.Panels className="mt-2">
+        <Tab.Panels className={classNames(["m-4"])}>
             <Tab.Panel 
               className={classNames(
                 'rounded-xl bg-white',
