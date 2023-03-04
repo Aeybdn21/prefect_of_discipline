@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\CaseParties;
 use Auth;
 
 
@@ -19,7 +20,8 @@ class HomeController extends Controller
     {
         $appToken = Auth::user()->createToken('adminToken', ['appUserToken'])->accessToken;
         $information = Auth::user();
-        return Inertia::render('Routes/RouteNavigation', compact('appToken', 'information'));
+        $case_parties = CaseParties::get();
+        return Inertia::render('Routes/RouteNavigation', compact('appToken', 'information', 'case_parties'));
     }
 
     

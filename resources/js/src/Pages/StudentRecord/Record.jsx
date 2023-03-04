@@ -57,8 +57,8 @@ export default function Record() {
 
   return ( 
     <>
-    <div className="flex flex-row justify-end px-5 py-3">
-      <div className="my-auto search-boxContainer d-none d-lg-block">
+    <div className="flex flex-row justify-end px-4 py-3">
+      <div className="my-auto search-boxContainer d-none d-lg-block mr-2">
           <input type="text" className="form-control search-box"  placeholder="Search..." aria-label="Example text with button addon" aria-describedby="button-addon1"/>
       </div>
     </div>

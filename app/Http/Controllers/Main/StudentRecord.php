@@ -22,7 +22,15 @@ class StudentRecord extends Controller
         $sanctions = Sanctions::get();
         $statuses = StudentStatus::get();
         $student_record = StudentRecordModel::where('status_id', null) -> get();
-        return response()->json(compact('registrar_recordslist', 'categorize', 'sanctions', 'student_record', 'statuses'));
+       
+
+        return response()->json(compact(
+            'registrar_recordslist', 
+            'categorize', 
+            'sanctions', 
+            'student_record', 
+            'statuses', 
+        ));
     }
 
     public function add_violation (Request $request) {

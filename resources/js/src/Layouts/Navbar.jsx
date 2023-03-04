@@ -5,8 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Actions } from '../redux/Actions';
 
 export default function Navbar() {
-    const {email} = useSelector((initState) => initState.userInfo.data);
+    const {email, name} = useSelector((initState) => initState.userInfo.data);
+    const user = useSelector((initState) => initState.userInfo.data);
     const dispatch = useDispatch();
+     
+
     return (
     <ul className="topbar m-0 list-unstyled">
         <div className="topbarChild d-flex justify-content-between align-items-center">
@@ -26,7 +29,7 @@ export default function Navbar() {
                 <li>
                     <div className="nav-item dropdown my-auto ms-4">
                         <a id="dropdownmenu" className="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <h5 className="m-0 d-none d-sm-block">{email}</h5>
+                        <h5 className="m-0 d-none d-sm-block capitalize">{name}</h5>
                         <img className="ms-0 ms-sm-3" src="/assets/image/man.png" width="32" height="32" alt="profile-picture"/>
                         </a>
                         <ul className="dropdown-menu border shadow dropdownContainer">

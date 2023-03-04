@@ -13,3 +13,4 @@ export const loaderComponent = (state = initState, actions) => {
         default: return state;
     }
 }
+

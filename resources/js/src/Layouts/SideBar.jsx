@@ -50,14 +50,7 @@ export default function SideBar() {
                     <span className="links_name uppercase">student record</span>
                 </Link>
                 <span className="tooltip uppercase">student record</span>
-            </li>
-            <li>
-                <a href="#" className="isActive">
-                    <i className='bx bx-collection' ></i>
-                    <span className="links_name uppercase">confiscated items</span>
-                </a>
-                <span className="tooltip uppercase">confiscated items</span>
-            </li>
+            </li> 
             <li>
                 <a href="#" className="isActive">
                 <i className='bx bx-bar-chart-alt-2' ></i>

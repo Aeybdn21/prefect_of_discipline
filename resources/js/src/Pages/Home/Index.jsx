@@ -15,7 +15,7 @@ export default function Index() {
       const data = {
         labels: labels,
         datasets: [{
-          label: 'My First Dataset',
+          label: '',
           data: [65, 59, 80, 81, 56, 55, 40],
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
@@ -32,33 +32,25 @@ export default function Index() {
       })
   }
   
-  return (
-      <section className="home-section mx-3 bg-light rounded shadow overflow-hidden">
-        <div className="flex flex-row flex-1 flex-wrap">
-          <div className="flex-1 p-9">
-            <div className="relative w-full h-96 items-center flex flex-col justify-center">
-              <canvas id="acquisitions"></canvas>
-              <div className="absolute text-red-500 text-7xl">
-                10
-              </div>
+  return ( 
+        <div className="grid md:grid-cols-2 ">
+          <div className="gap-2">
+            <div className="relative w-full items-center">
+              <canvas id="acquisitions"></canvas> 
               <div className="text-3xl mt-3">
                 Daily Report
               </div>
             </div>
           </div>
-          <div className="flex-1 p-9">
-            <div className="w-full h-96 items-center flex flex-col justify-center">
-              <canvas id="acquisitions1"></canvas>
-              <div className="absolute text-red-500 text-7xl">
-                30
-              </div>
+          <div className="gap-2">
+            <div className="w-full items-center">
+              <canvas id="acquisitions1"></canvas> 
               <div className="text-3xl mt-3">
                 Monthly Report
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </div> 
   );
 }
 

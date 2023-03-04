@@ -9,7 +9,7 @@ import Home from '../Home';
 import StudentRecord from '../StudentRecord';
  
 
-function App({appToken, information}) {
+function App({appToken, information, case_parties }) {
   const states = useSelector((initState) => initState);
   const dispatch = useDispatch();
 
@@ -20,6 +20,7 @@ function App({appToken, information}) {
   const userInformations = () => { 
     dispatch({type: Actions.USER_TOKEN, token: appToken});
     dispatch({type: Actions.USER_INFO_SUCCESS, data: information})
+    dispatch({type: Actions.CASE_PARTIES, data: case_parties}); 
   }
 
 

@@ -6,5 +6,6 @@ export const Actions = {
     USER_TOKEN: 'USER_TOKEN',
     SET_LOADER: 'SET_LOADER',
 
-    USER_LOGOUT: 'USER_LOGOUT'
+    USER_LOGOUT: 'USER_LOGOUT',
+    CASE_PARTIES: 'CASE_PARTIES'
 }

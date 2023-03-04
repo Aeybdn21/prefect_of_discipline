@@ -24,7 +24,9 @@ function MainLayout({children}) {
           <Navbar/>
           <div className="px-0 d-xl-flex position-relative d-flex">
             <SideBar/>
-            {children}
+            <section className="home-section mx-3 bg-white rounded shadow overflow-hidden p-4">
+              {children}
+            </section>
           </div>
       </main> 
       <Loader {...states}/> 

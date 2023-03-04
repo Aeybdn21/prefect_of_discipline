@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
             DefaultSanctions::class,
             DefaultStatuses::class,
             DefaultValues::class,
-            DefaultValueInvestigationStatuses::class
+            DefaultValueInvestigationStatuses::class,
+            DefaultCaseParties::class
         ]);
     }
 }
