@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('case_parties', function (Blueprint $table) {
+        Schema::create('prefect_case_parties', function (Blueprint $table) {
             $table->id();
             $table->string('description');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('case_parties');
+        Schema::dropIfExists('prefect_case_parties');
     }
 };

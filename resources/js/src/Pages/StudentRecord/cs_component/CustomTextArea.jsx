@@ -2,19 +2,20 @@ import React from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-function CustomTextArea() {
+function CustomTextArea(props) {
+  const {onChange} = props;
   return (
     <div className="text-editor">
-        <label htmlFor="details-text-id" className="text-sm mx-2 text-gray-600">Details <span className="text-red-600">*</span></label>
+        <label htmlFor="details-text-id" className="text-sm text-gray-600 my-2">Details <span className="text-red-600">*</span></label>
         <ReactQuill 
             id="details-text-id"  
             modules={toolBar} 
             formats={formats} 
-             className='h-48'
+            className='h-48'
             theme="snow"
+            onChange={onChange}
             placeholder="Write notes..."
-        />
-         
+        /> 
     </div>
   )
 }
@@ -30,6 +31,13 @@ const toolBar = {
       ]
 }
 
-const formats = ['header','bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image'];
+const formats = [
+  'header', 'color', 
+  'background','bold', 
+  'italic', 'underline', 
+  'strike', 'blockquote', 
+  'list', 'bullet', 'indent', 
+  'link', 'image'
+];
 
 export default CustomTextArea

@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build && vite build --ssr"
+        "build": "vite build && vite build --ssr",
+        "re-setup": "php artisan migrate && php artisan passport:install --force && php artisan db:seed"
     },
     "devDependencies": {
         "@headlessui/react": "^1.7.12",
