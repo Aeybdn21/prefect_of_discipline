@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\CaseParties;
+use App\Models\CategorizeCase;
 use Auth;
 
 
@@ -21,7 +22,10 @@ class HomeController extends Controller
         $appToken = Auth::user()->createToken('adminToken', ['appUserToken'])->accessToken;
         $information = Auth::user();
         $case_parties = CaseParties::get();
-        return Inertia::render('Routes/RouteNavigation', compact('appToken', 'information', 'case_parties'));
+        $categorize_case = CategorizeCase::get();
+        return Inertia::render('Routes/RouteNavigation',
+         compact('appToken', 'information', 'case_parties', 'categorize_case')
+        );
     }
 
     

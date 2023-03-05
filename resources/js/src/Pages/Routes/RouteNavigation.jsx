@@ -9,9 +9,15 @@ import Home from '../Home';
 import StudentRecord from '../StudentRecord';
  
 
-function App({appToken, information, case_parties }) {
-  const states = useSelector((initState) => initState);
+function App(props) {
   const dispatch = useDispatch();
+  const {
+    appToken, 
+    information, 
+    case_parties, 
+    categorize_case 
+  } = props; 
+  
 
   useEffect(() => {
     userInformations();  
@@ -19,8 +25,9 @@ function App({appToken, information, case_parties }) {
 
   const userInformations = () => { 
     dispatch({type: Actions.USER_TOKEN, token: appToken});
-    dispatch({type: Actions.USER_INFO_SUCCESS, data: information})
+    dispatch({type: Actions.USER_INFO_SUCCESS, data: information});
     dispatch({type: Actions.CASE_PARTIES, data: case_parties}); 
+    dispatch({type: Actions.CATEGORY_CASE, data: categorize_case});
   }
 
 

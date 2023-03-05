@@ -15,7 +15,7 @@ class DefaultValues extends Seeder
      */
     public function run()
     {
-        $categorize = ["BULLYING", "INJURY", "DRUGS", "VANDALISM", "COUNSELING", "OTHERS"];
+        $categorize = ["BULLYING", "INJURY", "DRUGS", "VANDALISM", "COUNSELING", "CONFISCATED ITEM", "OTHERS"];
         foreach ($categorize as $key => $value) {
             CategorizeCase::create([
                 "description" => $value

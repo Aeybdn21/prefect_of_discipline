@@ -12,5 +12,5 @@ class CategorizeCase extends Model
     
     protected $table = "prefect_categorize_cases";
     protected $guard = [];
-
+    protected $hidden = ["created_at", 'updated_at'];
 }

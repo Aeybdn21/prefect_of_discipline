@@ -2,12 +2,13 @@ import {combineReducers} from 'redux';
 import { Actions } from '../Actions';
 import {userInfo} from './authentication';
 import { loaderComponent } from './components';
-import { caseStatuses } from './utilities';
+import { caseStatuses, categoryCase } from './utilities';
 
 const rootReducer = combineReducers({
     userInfo,
     loaderComponent,
-    caseStatuses
+    caseStatuses,
+    categoryCase
 });
 
 const appReducer = (state, action) => {
