@@ -11,7 +11,7 @@ class StudentRecordModel extends Model
 {
     use HasFactory;
     protected $table = "prefect_student_records";
-    protected $guard = [];
+    protected $guarded = [];
  
     protected $appends = ['offenses', 'status', 'year_section'];
 

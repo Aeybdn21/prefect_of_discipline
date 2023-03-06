@@ -9,5 +9,5 @@ class StudentStatus extends Model
 {
     use HasFactory;
     protected $table = "prefect_student_statuses";
-    protected $guard = [];
+    protected $guarded = [];
 }

@@ -10,7 +10,7 @@ class RegistrarStudentSection extends Model
 {
     use HasFactory;
     protected $table = "registrar_studentsection";
-    protected $guard = [];
+    protected $guarded = [];
   
  
 }

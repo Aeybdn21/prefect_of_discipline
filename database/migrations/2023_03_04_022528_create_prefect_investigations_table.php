@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('student_num');
             $table->integer('case_parties_id')->nullable();
-            $table->text('details_html');
+            $table->longText('details_html');
             $table->unsignedBigInteger('categorize_id');
             $table->foreign('categorize_id')->references('id')->on('prefect_categorize_cases')->onDelete('cascade');
             $table->integer('claimable')->nullable()->comment('0 or 1 (optional)');

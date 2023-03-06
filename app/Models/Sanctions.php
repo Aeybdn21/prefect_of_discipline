@@ -9,5 +9,5 @@ class Sanctions extends Model
 {
     use HasFactory;
     protected $table = "prefect_sanctions";
-    protected $guard = [];
+    protected $guarded = [];
 }

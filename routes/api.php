@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\HomeController;
 use App\Http\Controllers\Main\StudentRecord;
+use App\Http\Controllers\Main\CaseStudyController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,5 +33,6 @@ Route::middleware(['auth:api'])->group(function(){
         Route::post('student_records', [StudentRecord::class, 'fetchStudentRecords'])->name('student_records');
         Route::post('add_sanctions', [StudentRecord::class, 'sanctionRecords'])->name('add_sanctions');
         Route::post('update_student_info', [StudentRecord::class, 'updateStudentInfo'])->name('update_student_info');
+        Route::post('case_study_store', [CaseStudyController::class, 'storeCaseStudy'])->name('case_study_store');
     });
 });
