@@ -10,4 +10,10 @@ class RegistrarStudentlist extends Model
     use HasFactory;
     protected $table = 'registrar_studentlist'; 
     protected $guarded=[];
+    
+    protected $with = ['sections:Student_ID,Section'];
+
+    public function sections () {
+        return $this->belongsTo(RegistrarStudentSection::class, 'Student_ID', 'Student_ID');
+    }
 }

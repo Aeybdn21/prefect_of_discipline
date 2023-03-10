@@ -4,6 +4,7 @@ import Record from './Record'
 import SanctionTabs from './SanctionTabs'
 import { Tab } from '@headlessui/react'
 import CaseStudy from './CaseStudy'
+import InvestigationPage from './InvestigationPage'
  
 
 function classNames(...classes) {
@@ -84,8 +85,7 @@ export default function Index() {
               'ring-white '
             )}
           >
-            
-            {/* <AddingViolation/> */}
+             <InvestigationPage/>
           </Tab.Panel> 
           <Tab.Panel 
             className={classNames(

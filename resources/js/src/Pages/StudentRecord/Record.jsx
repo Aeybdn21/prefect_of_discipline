@@ -6,7 +6,8 @@ import ModalForm from '@/src/components/ModalForm';
 import Loader from '@/src/components/Loader';
 import { DeleteIcon, MessageIcon, PencilIcon } from '@/src/components/IconsTable';
 import ModalMessage from '@/src/components/ModalMessage';
-
+import Lottie from "lottie-react";
+import EmptyAnimation from '../../lottie/79572-empty-state.json';
 
 export default function Record() {
 
@@ -64,7 +65,7 @@ export default function Record() {
     </div>
     <div className="overflow-auto rounded-lg border border-gray-200 shadow">
       <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
-        <thead className="bg-gray-50">
+        <thead className="bg-gray-200">
           <tr>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Student number</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Name</th>
@@ -122,6 +123,16 @@ export default function Record() {
             </td>
           </tr>
           )}
+          {renderDataRecordStudent.length == 0 && 
+           <tr>
+            <td colSpan={8} className="pb-4">
+                <div className="flex flex-col items-center">
+                    <Lottie style={{width: 100, height: 100}} animationData={EmptyAnimation} loop={true}/>
+                    <span className='uppercase text-sm'>no record found</span>
+                </div>
+            </td>
+          </tr>
+          }
         </tbody>
       </table>
     </div>

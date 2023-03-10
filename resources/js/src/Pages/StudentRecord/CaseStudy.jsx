@@ -72,6 +72,9 @@ function CaseStudy() {
     }
 
     const handleSubmit = () => {
+        // console.log({isDetails});
+        // handleCancel();
+        // return;
         const payload = {
             student_number: isStudentNumber,
             case_parties_enable: isDisableSelect,
@@ -106,12 +109,12 @@ function CaseStudy() {
         setFullname('');
         setDisableSelect(false);
         setCasePartiesValue(null); 
-        setDetails('');
         setSpecify('');
         setCategorizeCase(null);
         setError({});
         $('#submit_form').trigger('reset'); 
         document.getElementsByClassName("ql-editor")[0].innerHTML = "";
+        setDetails(null);
     }
  
     return (

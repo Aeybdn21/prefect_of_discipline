@@ -36,7 +36,7 @@ function SearchBar(props) {
           <ul className="">
             {setDataSearch.map((value, index) => (
               <li className="hover:bg-gray-100 py-2 px-4 border-b border-b-gray-300" key={index}>
-                  <a className="hover:text-black cursor-pointer" onClick={() => onSelectedItem(value)}>
+                  <a className="hover:text-black cursor-pointer" onClick={(event) => {event.preventDefault(); onSelectedItem(value)}}>
                     <div className="flex flex-col">
                         <span className="text-sm font-bold">Student ID: {value.Student_ID}</span> 
                         <span className="text-xs text-gray-500">{value.Lastname}, {value.Firstname} {value.Middlename[0]}.</span>

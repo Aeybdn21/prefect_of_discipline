@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\HomeController;
 use App\Http\Controllers\Main\StudentRecord;
 use App\Http\Controllers\Main\CaseStudyController;
+use App\Http\Controllers\Main\Investigations;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,6 @@ Route::middleware(['auth:api'])->group(function(){
         Route::post('add_sanctions', [StudentRecord::class, 'sanctionRecords'])->name('add_sanctions');
         Route::post('update_student_info', [StudentRecord::class, 'updateStudentInfo'])->name('update_student_info');
         Route::post('case_study_store', [CaseStudyController::class, 'storeCaseStudy'])->name('case_study_store');
+        Route::post('show_investigations', [Investigations::class, 'showStore'])->name('show_investigations');
     });
 });
