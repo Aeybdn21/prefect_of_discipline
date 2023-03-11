@@ -32,4 +32,10 @@ class PrefectInvestigations extends Model
     public function case_parties () {
         return $this->belongsTo(CaseParties::class, 'case_parties_id');
     }
+
+    public function getClaimableAttribute($value){
+        if($value !== null) {
+            return $value == 1? 'Claimable' : 'Not Claimable';
+        }
+    }
 }

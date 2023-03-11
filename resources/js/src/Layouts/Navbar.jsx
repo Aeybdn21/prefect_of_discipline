@@ -22,7 +22,7 @@ export default function Navbar() {
                 </div>
             </li>
             <div className="d-flex align-items-center justify-content-end">
-                <li>
+                <li className="hidden lg:block">
                     <i className="bx bxs-message-dots fs-4 me-3 mt-1 m-0"></i>
                     <i className="bx bxs-bell fs-4 mt-1 m-0"></i>
                 </li>

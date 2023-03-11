@@ -71,10 +71,7 @@ function CaseStudy() {
         setCasePartiesValue(parseInt(event.target.value))
     }
 
-    const handleSubmit = () => {
-        // console.log({isDetails});
-        // handleCancel();
-        // return;
+    const handleSubmit = () => { 
         const payload = {
             student_number: isStudentNumber,
             case_parties_enable: isDisableSelect,

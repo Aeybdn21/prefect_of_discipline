@@ -28,6 +28,7 @@
         "@mui/icons-material": "^5.11.9",
         "@mui/material": "^5.11.10",
         "chart.js": "^4.2.0",
+        "html-react-parser": "^3.0.12",
         "jquery": "^3.6.3",
         "localforage": "^1.10.0",
         "lottie-react": "^2.4.0",

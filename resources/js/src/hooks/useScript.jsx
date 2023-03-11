@@ -5,7 +5,7 @@ export const useScript = () => {
   useEffect(() => { 
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
+    // let searchBtn = document.querySelector(".bx-search");
     let arrow = document.querySelectorAll(".arrow");
 
     closeBtn.addEventListener("click", () => {
@@ -13,11 +13,11 @@ export const useScript = () => {
       menuBtnChange(); //calling the function(optional)
     });
 
-    searchBtn.addEventListener("click", () => {
-      // Sidebar open when you click on the search iocn
-      sidebar.classList.toggle("open");
-      menuBtnChange(); //calling the function(optional)
-    });
+    // searchBtn.addEventListener("click", () => {
+    //   // Sidebar open when you click on the search iocn
+    //   sidebar.classList.toggle("open");
+    //   menuBtnChange(); //calling the function(optional)
+    // });
 
     // following are the code to change sidebar button(optional)
     function menuBtnChange() {

@@ -33,9 +33,9 @@ export default function SideBar() {
     <div className="sidebar close rounded shadow">
         <ul className="nav-list p-0 m-0">
             <li className="d-block d-lg-none">
-                <i className="bx bx-search"></i>
-                <input type="text" placeholder="Search..." />
-                <span className="tooltip">Search</span>
+                {/* <i className="bx bx-search"></i> */}
+                {/* <input type="text" placeholder="Search..." /> */}
+                {/* <span className="tooltip">Search</span> */}
             </li>
             <li>
                 <Link to="/page/home" className="isActive">
