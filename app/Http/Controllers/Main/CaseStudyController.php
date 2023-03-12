@@ -15,7 +15,7 @@ class CaseStudyController extends Controller
        
         $validator = Validator::make($request->all(), [
             'student_number' => 'required',
-            'detail_text' => 'required|string',
+            'detail_text' => 'required|string|min:100',
             'categorize_id' => 'required|integer',
         ], trans('case_study.message'));
          
@@ -48,7 +48,7 @@ class CaseStudyController extends Controller
         if($request->case_parties_enable){
             
             $validator2 = Validator::make($request->all(),[
-                'case_parties_id' => 'required|integer|max:2'
+                'case_parties_id' => 'required|integer|max:4'
             ], [
                 'case_parties_id.required' => 'Please choose the Case Parties field to continue.'
             ]);
@@ -68,14 +68,11 @@ class CaseStudyController extends Controller
         }
 
         if($request->categorize_id == 6) {
-            $message_validator3 = array(
-                'claimable.required' => 'The Confiscated item checkbox needed to choose eighter Claimable or Not Claimable',
-                'specify_desc.required' => 'Please Specify the confiscated item'
-            );
+             
             $validator3 = Validator::make($request->all(), [
                 'claimable' => 'required|boolean',
-                'specify_desc' => 'required'
-            ], $message_validator3);
+                'specify_desc' => 'required|min:100|max:200'
+            ], trans('case_study.message_2'));
            
             if($validator3->fails()){
                 $message_3 =  $validator3->messages();

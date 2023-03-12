@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('categorize_id');
             $table->foreign('categorize_id')->references('id')->on('prefect_categorize_cases')->onDelete('cascade');
             $table->integer('claimable')->nullable()->comment('0 or 1 (optional)');
-            $table->string('specify_desc')->nullable()->comment('(optional)');
+            $table->string('specify_desc', 200)->nullable()->comment('(optional)');
             $table->unsignedBigInteger('investigate_status_id')->index();
             $table->foreign('investigate_status_id')->references('id')->on('prefect_status_investigations')->onDelete('cascade');
             $table->timestamps();

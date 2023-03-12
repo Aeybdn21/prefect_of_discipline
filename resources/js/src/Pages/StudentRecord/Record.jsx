@@ -7,7 +7,8 @@ import Loader from '@/src/components/Loader';
 import { DeleteIcon, MessageIcon, PencilIcon } from '@/src/components/IconsTable';
 import ModalMessage from '@/src/components/ModalMessage';
 import Lottie from "lottie-react";
-import EmptyAnimation from '../../lottie/79572-empty-state.json';
+import EmptyAnimation from '../../lottie/79572-empty-state.json'; 
+import LoadingFiles from '../../lottie/99297-loading-files.json';
 
 export default function Record() {
 
@@ -15,17 +16,20 @@ export default function Record() {
   const [renderDataRecordStudent, setRenderDataRecordStudent] = useState([]);
   const [isFormModal, setFormModal] = useState({});
   const [isMessageModal, setMessageModal] = useState({});
-
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     handleFetchStudents();
   }, [selector.loaderComponent.loading])
 
   const handleFetchStudents = () => {
+    setLoading(true);
     axios.defaults.headers.common['Authorization'] = `Bearer ${selector.userInfo.token}`;
     axios.post(route('student_records')).then(({data}) => {
       const response = data;
+      console.log({response})
       setRenderDataRecordStudent(response.student_records); 
+      setLoading(false);
     });
   }
 
@@ -84,7 +88,7 @@ export default function Record() {
             <td className="px-12 py-4">
               <div className="font-bold">{value.student_id}</div>
             </td>
-            <th className="flex gap-3 px-6 py-4 font-normal text-gray-900"> 
+            <th className=" gap-3 px-6 py-4 font-normal text-gray-900"> 
               <div className="text-sm">
                 <div className="font-medium text-gray-700">{value.students_info.Lastname}, {value.students_info.Firstname} {value.students_info.Middlename}.</div>
                 <div className="text-gray-400">{value.students_info.Email}</div>
@@ -96,10 +100,18 @@ export default function Record() {
             <td className="px-6 py-4 "> 
                 <div className="text-gray-400">{value.year_section.Section}</div>
             </td>
-            <td className="px-6 py-4"> 
-              {value.violations.id == 6 ? value.others: value.violations.description}
+            <td className="py-4"> 
+              <div>
+                <div className="font-bold">
+                  {value.violations.description}
+                </div>
+                <div className="text-xs mt-2">
+                  {value.others}
+                </div>
+              </div>
+              {/* {value.violations.id == 6 ? value.others: value.violations.description} */}
             </td>
-            <td className="px-6 py-4">
+            <td className="px-3 py-4">
               <div className="flex justify-center">
                 {value.sanctions?.sancat_id == 4 ? value.sanctions?.other : value.sanctions?.sanction_desc || value.sanctions == null && 'Pending'}
               </div>
@@ -123,9 +135,9 @@ export default function Record() {
             </td>
           </tr>
           )}
-          {renderDataRecordStudent.length == 0 && 
+          {(renderDataRecordStudent.length == 0 && !isLoading ) && 
            <tr>
-            <td colSpan={8} className="pb-4">
+            <td colSpan={9} className="pb-4">
                 <div className="flex flex-col items-center">
                     <Lottie style={{width: 100, height: 100}} animationData={EmptyAnimation} loop={true}/>
                     <span className='uppercase text-sm'>no record found</span>
@@ -133,6 +145,15 @@ export default function Record() {
             </td>
           </tr>
           }
+          {(isLoading && renderDataRecordStudent.length <= 0) && 
+            <tr>
+                <td colSpan={9} className="pb-3">
+                    <div className="flex flex-col items-center">
+                        <Lottie style={{width: 120, height: 120}} animationData={LoadingFiles} loop={true}/>
+                        <span className='uppercase text-sm font-bold'> loading ...</span>
+                    </div>
+                </td>
+            </tr>} 
         </tbody>
       </table>
     </div>

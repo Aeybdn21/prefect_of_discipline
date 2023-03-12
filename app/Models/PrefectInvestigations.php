@@ -10,6 +10,7 @@ class PrefectInvestigations extends Model
     use HasFactory;
     protected $guarded = [];
     
+    protected $appends = ['is_recorded'];
     protected $with = [
         'student_info:Student_ID,Lastname,Firstname,Middlename,Email,Course,Contact_No', 
         'violation_case',
@@ -37,5 +38,9 @@ class PrefectInvestigations extends Model
         if($value !== null) {
             return $value == 1? 'Claimable' : 'Not Claimable';
         }
+    }
+    public function getIsRecordedAttribute(){
+        $student_record = StudentRecordModel::where('investigation_id', $this->id)->first();
+        return $student_record == null ? false: true;
     }
 }

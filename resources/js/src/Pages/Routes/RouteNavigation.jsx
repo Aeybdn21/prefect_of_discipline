@@ -23,7 +23,8 @@ function App(props) {
     userInformations();  
   },[])
 
-  const userInformations = () => {  
+  const userInformations = () => {   
+    console.log({appToken})
     dispatch({type: Actions.USER_TOKEN, token: appToken});
     dispatch({type: Actions.USER_INFO_SUCCESS, data: information});
     dispatch({type: Actions.CASE_PARTIES, data: case_parties}); 

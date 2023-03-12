@@ -4,11 +4,11 @@ import Lottie from "lottie-react";
 import EmptyAnimation from '../../lottie/79572-empty-state.json';
 import LoadingFiles from '../../lottie/99297-loading-files.json';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DropdownMenu from './in_components/DropdownMenu';
 import OpenDetailsModal from './in_components/OpenDetialsModal';
-import ReactQuill from 'react-quill'; 
-import "react-quill/dist/quill.snow.css";
+import Paginations from './in_components/Paginations'; 
+import { loadingFalse, loadingFalseAnimated, loadingTrue } from '@/src/redux/actions/loader';
 
 
 function InvestigationPage() {
@@ -16,6 +16,7 @@ function InvestigationPage() {
     const {token} = useSelector((initState) => initState.userInfo); 
     const [isLoading, setLoading] = useState(false);
     const [isOpenDetails, setOpenDetails] = useState({});
+    const dispatch = useDispatch();
     
     useEffect(() => {
         showInvestigations();
@@ -42,7 +43,7 @@ function InvestigationPage() {
     }
 
     const handleOnEdit = (value) => {
-        console.log(value);
+        // console.log(value);
         
     }
     const handleOpenDetails = (value) => { 
@@ -51,11 +52,32 @@ function InvestigationPage() {
             onChangeClose() {
                 setOpenDetails((initState) =>({...initState, isVisible: false}));
             },
-            body: value.data.details_html
+            body: value.data.details_html,
+            student_info: `${value.data.student_info.year_section} ${value.data.student_info.student_fullname}`,
+            datetime: value.data.created_at
         }))
     }
     const handleOnDelete = (value) => {
 
+    }
+
+    const handleOnApply = (value) => {
+        const payload = {
+            student_id: value.data.student_num,
+            offense: null,
+            categorize_case: value.data.categorize_id,
+            others: value.data.specify_desc,
+            investigation_id: value.data.id
+        }; 
+        axios.post(route('add_violations'), payload).then(async (response) => {
+            if(!response.data.error) {
+                 showInvestigations();
+            } else {
+                
+            }
+        }).catch((error) => {
+            console.log({error})
+        })
     }
 
   return (<>
@@ -80,15 +102,16 @@ function InvestigationPage() {
         </thead>
         <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {inTabledata.map((data, index) => (<tr className="hover:bg-gray-50 " key={index}>
-                <th className=" px-12 py-4 ">
+                <th className=" px-10 py-4">
                     <div className="font-bold">{data.student_num}</div>
+                    {data.is_recorded && <div className="font-bold capitalize text-[8.5px] text-green-600">Already recorded</div>}
                 </th>
                 <th className="gap-3 px-6 py-3 font-normal text-gray-900"> 
                     <div className="text-sm">
-                        <div className="text-gray-700">{data.student_info.Course}-{data.student_info.sections.Section}</div>
-                        <div className="font-medium text-gray-500">{data.student_info.Lastname}, {data.student_info.Firstname} {data.student_info.Middlename}.</div>
+                        <div className={classNames(data.is_recorded ? "text-green-600": "text-gray-700")}>{data.student_info.year_section}</div>
+                        <div className={classNames( data.is_recorded ? "text-green-600": "font-medium text-gray-500")}>{data.student_info.student_fullname}</div>
                         <div className="text-gray-400">{data.student_info.Email}</div>
-                        <div className="text-gray-400">{data.student_info.Contact_No && `+63${data.student_info.Contact_No}`}</div>
+                        <div className="text-gray-400">{data.student_info.Contact_No &&  data.student_info.contact_num63}</div>
                     </div>
                 </th>
                 <td className="px-6 py-3 ">
@@ -106,7 +129,7 @@ function InvestigationPage() {
                         </div>
                     )}
                 </th> 
-                <td className="px-6 py-3">
+                <td className="px-6 py-3 max-w-[20rem]">
                     {data.specify_desc || '------'}
                 </td>
                 <th className="">
@@ -119,6 +142,8 @@ function InvestigationPage() {
                         onChangeEdit={() => handleOnEdit({data, index})} 
                         onChangeOpenDetails = {() => handleOpenDetails({data, index})}
                         onChangeDelete={() => handleOnDelete({data, index})}
+                        onChangeApply={() => handleOnApply({data, index})}
+                        isRecorded = {data.is_recorded}
                     />
                 </td>
             </tr>))}
@@ -142,14 +167,17 @@ function InvestigationPage() {
             </tr>} 
         </tbody>
       </table>
+      
     </div> 
+    <div className="flex flex-row justify-end my-3 -z-20">
+        <Paginations/>
+      </div>
     <div className="my-36"/>
    </div>
    <OpenDetailsModal {...isOpenDetails}/>
    </>
   )
 }
-
 
 
 export default InvestigationPage
