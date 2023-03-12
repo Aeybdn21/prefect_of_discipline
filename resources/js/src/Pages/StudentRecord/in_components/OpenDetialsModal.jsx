@@ -4,10 +4,12 @@ import ReactQuill from 'react-quill';
 import "react-quill/dist/quill.snow.css";
 import Writing from '../../../lottie/41460-writing.json';
 import Lottie from 'lottie-react';
+import moment from 'moment';
+
 
 
 function OpenDetailsModal(prop) { 
-  const {isVisible=false, onChangeClose = () => {}, body =''} = prop; 
+  const {isVisible=false, onChangeClose = () => {}, body ='', student_info = '', datetime} = prop; 
   const [isRender, setRender] = useState(false);
   useEffect(() => {
     if(isVisible){
@@ -51,12 +53,15 @@ function OpenDetailsModal(prop) {
               >
                 <Dialog.Panel className="w-full  max-w-4xl transform overflow-hidden rounded-xl 
                 bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-base font-bold leading-6 text-gray-900 uppercase"
-                  >
+                  <Dialog.Title as="h3" className="text-base font-bold leading-6 text-gray-900 uppercase">
                     Open Details
                   </Dialog.Title>
+                  <div className="text-sm text-gray-500">
+                     {student_info}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    {moment(datetime).format('MMM DD, YYYY hh:mm A')}
+                  </div>
                   <div className="mt-3 max-h-96 overflow-y-auto p-2"> 
                       {isRender  && <ReactQuill  value={body} readOnly={true} theme="bubble" /> }
                       {(!isRender && isVisible) && <div className="flex flex-col items-center">

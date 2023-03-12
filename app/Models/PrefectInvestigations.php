@@ -10,6 +10,7 @@ class PrefectInvestigations extends Model
     use HasFactory;
     protected $guarded = [];
     
+
     protected $with = [
         'student_info:Student_ID,Lastname,Firstname,Middlename,Email,Course,Contact_No', 
         'violation_case',
@@ -38,4 +39,5 @@ class PrefectInvestigations extends Model
             return $value == 1? 'Claimable' : 'Not Claimable';
         }
     }
+  
 }

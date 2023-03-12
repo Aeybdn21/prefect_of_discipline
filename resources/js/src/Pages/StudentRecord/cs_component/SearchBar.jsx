@@ -35,9 +35,9 @@ function SearchBar(props) {
         {isVisible && <div className="absolute bg-white w-full my-1 rounded-md shadow-md overflow-y-auto max-h-56 z-[1000] border border-gray-600">
           <ul className="">
             {setDataSearch.map((value, index) => (
-              <li className="hover:bg-gray-100 py-2 px-4 border-b border-b-gray-300" key={index}>
+              <li className="hover:bg-gray-100  border-b border-b-gray-300" key={index}>
                   <a className="hover:text-black cursor-pointer" onClick={(event) => {event.preventDefault(); onSelectedItem(value)}}>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col py-2 px-4">
                         <span className="text-sm font-bold">Student ID: {value.Student_ID}</span> 
                         <span className="text-xs text-gray-500">{value.Lastname}, {value.Firstname} {value.Middlename[0]}.</span>
                     </div>

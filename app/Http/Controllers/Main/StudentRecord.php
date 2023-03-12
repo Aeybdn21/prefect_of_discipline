@@ -36,7 +36,7 @@ class StudentRecord extends Controller
     public function add_violation (Request $request) {
         $validator = Validator::make($request->all(), [
             "student_id" => "required",
-            "offense" => "required",
+            // "offense" => "required",
             "categorize_case" => "required"
         ]);
         $message = "";
@@ -53,6 +53,7 @@ class StudentRecord extends Controller
             $student_record->offense_id = $request->offense;
             $student_record->categorize_id = $request->categorize_case;
             $student_record->others = $request->others;
+            $student_record->investigation_id = $request->investigation_id;
             $student_record->save();
         }
         

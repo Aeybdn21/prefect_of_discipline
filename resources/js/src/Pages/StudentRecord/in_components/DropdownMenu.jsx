@@ -1,9 +1,10 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
+import { classNames } from '../../utilities';
 
 export default function DropdownMenu(props) {
-  const {onChangeEdit, onChangeOpenDetails, onChangeDelete} = props;
+  const {onChangeEdit, onChangeOpenDetails, onChangeDelete, onChangeApply} = props;
 
   return ( 
       <Menu as="div" className=" text-left">
@@ -27,7 +28,7 @@ export default function DropdownMenu(props) {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items className="absolute right-5 mt-1 w-56 origin-top-right divide-y 
-          divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  ">
+          divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-20 ">
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
@@ -71,6 +72,19 @@ export default function DropdownMenu(props) {
                       />
                     )}
                     Open Details
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({active}) => (
+                  <button onClick={onChangeApply} className={classNames(active? 'bg-blue-500 text-white': 'text-gray-900', 
+                  ' group flex w-full items-center', ' rounded-md px-2 py-2 text-sm')}>
+                    {active ? (
+                      <ApplyActiveIcon className="mr-2 h-5 w-5" aria-hidden="true"/>
+                    ):
+                    (<ApplyInactiveIcon className="mr-2 h-5 w-5" aria-hidden="true"/>)
+                    }
+                    Apply
                   </button>
                 )}
               </Menu.Item>
@@ -215,5 +229,44 @@ function DeleteActiveIcon(props) {
       <path d="M3 6H17" stroke="white" strokeWidth="2" />
       <path d="M8 6V4H12V6" stroke="white" strokeWidth="2" />
     </svg>
+  )
+}
+
+
+function ApplyInactiveIcon (props) {
+  return (
+    <svg
+    {...props} 
+    xmlns="http://www.w3.org/2000/svg" 
+     fill="none" 
+     viewBox="0 0 24 24" 
+     strokeWidth={2} 
+     stroke="#68ad80"  >
+    <path 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 
+      1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 
+      .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+  </svg>
+  )
+}
+
+function ApplyActiveIcon (props) {
+  return (
+    <svg
+    {...props} 
+    xmlns="http://www.w3.org/2000/svg" 
+     fill="none" 
+     viewBox="0 0 24 24" 
+     strokeWidth={2} 
+     stroke="currentColor"  >
+    <path 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 
+      1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 
+      .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+  </svg>
   )
 }

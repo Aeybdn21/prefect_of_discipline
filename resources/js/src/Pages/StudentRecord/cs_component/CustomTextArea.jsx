@@ -32,7 +32,7 @@ const toolBar = {
         ['bold', 'italic', 'underline','strike', 'blockquote'],
         [{'size': []}],
         [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-        ['link', 'image'],
+        ['link'],
         ['clean']
       ]
 }
@@ -43,7 +43,7 @@ const formats = [
   'italic', 'underline', 
   'strike', 'blockquote',
   'size',  'list', 'bullet', 'indent', 
-  'link', 'image'
+  'link', 
 ];
 
 export default CustomTextArea

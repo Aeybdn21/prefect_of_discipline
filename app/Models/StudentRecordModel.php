@@ -32,7 +32,9 @@ class StudentRecordModel extends Model
     }
  
     public function getOffensesAttribute() {
-        return $this->offense_id == 0? 'Minor Offense': 'Major Offense';
+        if($this->offense_id !==null) {
+            return $this->offense_id == 0? 'Minor Offense': 'Major Offense';
+        }
     }
 
     public function getStatusAttribute() {
