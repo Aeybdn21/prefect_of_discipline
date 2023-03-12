@@ -4,7 +4,7 @@ import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../../utilities';
 
 export default function DropdownMenu(props) {
-  const {onChangeEdit, onChangeOpenDetails, onChangeDelete, onChangeApply} = props;
+  const {onChangeEdit, onChangeOpenDetails, onChangeDelete, onChangeApply, isRecorded} = props;
 
   return ( 
       <Menu as="div" className=" text-left">
@@ -75,7 +75,7 @@ export default function DropdownMenu(props) {
                   </button>
                 )}
               </Menu.Item>
-              <Menu.Item>
+              {!isRecorded && <Menu.Item>
                 {({active}) => (
                   <button onClick={onChangeApply} className={classNames(active? 'bg-blue-500 text-white': 'text-gray-900', 
                   ' group flex w-full items-center', ' rounded-md px-2 py-2 text-sm')}>
@@ -87,10 +87,10 @@ export default function DropdownMenu(props) {
                     Apply
                   </button>
                 )}
-              </Menu.Item>
+              </Menu.Item>}
             </div>
             <div className="px-1 py-1">
-              <Menu.Item>
+              {!isRecorded && <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
@@ -112,7 +112,7 @@ export default function DropdownMenu(props) {
                     Delete
                   </button>
                 )}
-              </Menu.Item>
+              </Menu.Item>}
             </div>
           </Menu.Items>
         </Transition>

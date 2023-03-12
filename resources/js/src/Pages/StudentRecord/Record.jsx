@@ -88,7 +88,7 @@ export default function Record() {
             <td className="px-12 py-4">
               <div className="font-bold">{value.student_id}</div>
             </td>
-            <th className="flex gap-3 px-6 py-4 font-normal text-gray-900"> 
+            <th className=" gap-3 px-6 py-4 font-normal text-gray-900"> 
               <div className="text-sm">
                 <div className="font-medium text-gray-700">{value.students_info.Lastname}, {value.students_info.Firstname} {value.students_info.Middlename}.</div>
                 <div className="text-gray-400">{value.students_info.Email}</div>
@@ -100,10 +100,18 @@ export default function Record() {
             <td className="px-6 py-4 "> 
                 <div className="text-gray-400">{value.year_section.Section}</div>
             </td>
-            <td className="px-6 py-4"> 
-              {value.violations.id == 6 ? value.others: value.violations.description}
+            <td className="py-4"> 
+              <div>
+                <div className="font-bold">
+                  {value.violations.description}
+                </div>
+                <div className="text-xs mt-2">
+                  {value.others}
+                </div>
+              </div>
+              {/* {value.violations.id == 6 ? value.others: value.violations.description} */}
             </td>
-            <td className="px-6 py-4">
+            <td className="px-3 py-4">
               <div className="flex justify-center">
                 {value.sanctions?.sancat_id == 4 ? value.sanctions?.other : value.sanctions?.sanction_desc || value.sanctions == null && 'Pending'}
               </div>

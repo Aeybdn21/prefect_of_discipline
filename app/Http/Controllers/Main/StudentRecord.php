@@ -88,6 +88,12 @@ class StudentRecord extends Controller
                 $sanction_record->sancat_id = $request->sanction_id;
                 $sanction_record->others = $request->others; 
                 $sanction_record->save();
+            }else {
+                $existing = $sanction_record->where('studrec_id', $request->student_refid);
+                $existing->update([
+                    'sancat_id' => $request->sanction_id,
+                    'others' => $request->others ? $request->others: $existing->first()->others
+                ]);
             }
         }
         

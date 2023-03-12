@@ -68,14 +68,12 @@ function InvestigationPage() {
             categorize_case: value.data.categorize_id,
             others: value.data.specify_desc,
             investigation_id: value.data.id
-        };
-        dispatch(loadingTrue());
+        }; 
         axios.post(route('add_violations'), payload).then(async (response) => {
             if(!response.data.error) {
-                const finishloading = await dispatch(loadingFalseAnimated());
-                console.log(finishloading)
+                 showInvestigations();
             } else {
-                dispatch(loadingFalse());
+                
             }
         }).catch((error) => {
             console.log({error})
@@ -104,14 +102,14 @@ function InvestigationPage() {
         </thead>
         <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {inTabledata.map((data, index) => (<tr className="hover:bg-gray-50 " key={index}>
-                <th className=" px-12 py-4 ">
+                <th className=" px-10 py-4">
                     <div className="font-bold">{data.student_num}</div>
-                    {/* <div className="font-bold capitalize text-[8px] text-green-600">Already recorded</div> */}
+                    {data.is_recorded && <div className="font-bold capitalize text-[8.5px] text-green-600">Already recorded</div>}
                 </th>
                 <th className="gap-3 px-6 py-3 font-normal text-gray-900"> 
                     <div className="text-sm">
-                        <div className="text-gray-700">{data.student_info.year_section}</div>
-                        <div className="font-medium text-gray-500">{data.student_info.student_fullname}</div>
+                        <div className={classNames(data.is_recorded ? "text-green-600": "text-gray-700")}>{data.student_info.year_section}</div>
+                        <div className={classNames( data.is_recorded ? "text-green-600": "font-medium text-gray-500")}>{data.student_info.student_fullname}</div>
                         <div className="text-gray-400">{data.student_info.Email}</div>
                         <div className="text-gray-400">{data.student_info.Contact_No &&  data.student_info.contact_num63}</div>
                     </div>
@@ -145,6 +143,7 @@ function InvestigationPage() {
                         onChangeOpenDetails = {() => handleOpenDetails({data, index})}
                         onChangeDelete={() => handleOnDelete({data, index})}
                         onChangeApply={() => handleOnApply({data, index})}
+                        isRecorded = {data.is_recorded}
                     />
                 </td>
             </tr>))}
