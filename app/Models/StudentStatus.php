@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class StudentStatus extends Model
 {
     use HasFactory;
-    protected $table = "prefect_student_statuses";
+    protected $table = "pd_student_statuses";
     protected $guarded = [];
 }

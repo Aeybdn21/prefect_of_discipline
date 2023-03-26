@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Sanctions extends Model
 {
     use HasFactory;
-    protected $table = "prefect_sanctions";
+    protected $table = "pd_sanctions";
     protected $guarded = [];
 }

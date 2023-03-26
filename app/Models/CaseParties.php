@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CaseParties extends Model
 {
     use HasFactory;
-    protected $table = 'prefect_case_parties';
+    protected $table = 'pd_case_parties';
     protected $guarded = [];
     protected $hidden = ['created_at', 'updated_at'];
 }

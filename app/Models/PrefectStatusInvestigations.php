@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PrefectStatusInvestigations extends Model
 {
     use HasFactory;
+    protected $table = "pd_status_investigations";
+
     protected $guarded = [];
 }

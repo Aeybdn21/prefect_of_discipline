@@ -10,7 +10,7 @@ class CategorizeCase extends Model
 {
     use HasFactory;
     
-    protected $table = "prefect_categorize_cases";
+    protected $table = "pd_categorize_cases";
     protected $guarded = [];
     protected $hidden = ["created_at", 'updated_at'];
 }

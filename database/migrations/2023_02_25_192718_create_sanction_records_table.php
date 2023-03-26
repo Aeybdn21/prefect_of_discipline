@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prefect_sanction_records', function (Blueprint $table) {
+        Schema::create('pd_sanction_records', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('studrec_id')->index();
-            $table->foreign('studrec_id')->references('id')->on('prefect_student_records')->onDelete('cascade');
+            $table->foreign('studrec_id')->references('id')->on('pd_student_records')->onDelete('cascade');
             $table->unsignedBigInteger('sancat_id')->index();
-            $table->foreign('sancat_id')->references('id')->on('prefect_sanctions')->onDelete('cascade');
+            $table->foreign('sancat_id')->references('id')->on('pd_sanctions')->onDelete('cascade');
             $table->string('others')->nullable();
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prefect_sanction_records');
+        Schema::dropIfExists('pd_sanction_records');
     }
 };
