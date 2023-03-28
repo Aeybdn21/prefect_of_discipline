@@ -15,5 +15,4 @@ class RegistrarStudentSection extends Model
     protected $table = "registrar_studentsection";
     protected $guarded = [];
   
- 
 }

@@ -15,7 +15,7 @@ class ImportTableSeeder extends Seeder
     public function run()
     {
         $registrar_studentlist = public_path('sql/registrar_studentlist.sql');
-        $registrar_studentlist_2 = public_path('sql/registrar_studentsection-1.sql');
+        $registrar_studentlist_2 = public_path('sql/registrar_studentsection.sql');
         DB::connection('mysql_1')->unprepared(file_get_contents($registrar_studentlist));
         DB::connection('mysql_1')->unprepared(file_get_contents($registrar_studentlist_2));
     }

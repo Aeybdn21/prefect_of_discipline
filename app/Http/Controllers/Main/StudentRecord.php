@@ -17,13 +17,14 @@ use App\Models\StudentStatus;
 class StudentRecord extends Controller
 {
     public function registrar_records() {
-        $registrar_recordslist = RegistrarStudentlist::whereNotIn('student_id', StudentRecordModel::where('status_id',null)->select('student_id')->pluck('student_id'))->get();
+        $registrar_recordslist = RegistrarStudentlist::whereNotIn('student_id', 
+            StudentRecordModel::where('status_id',null)->select('student_id')->pluck('student_id')
+        )->get();
         $categorize = CategorizeCase::all();
         $sanctions = Sanctions::get();
         $statuses = StudentStatus::get();
         $student_record = StudentRecordModel::where('status_id', null) -> get();
        
-
         return response()->json(compact(
             'registrar_recordslist', 
             'categorize', 
