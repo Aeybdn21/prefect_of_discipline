@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PrefectStatusInvestigations extends Model
 {
     use HasFactory;
+
+    protected $connection = 'mysql_1';
+
     protected $table = "pd_status_investigations";
 
     protected $guarded = [];

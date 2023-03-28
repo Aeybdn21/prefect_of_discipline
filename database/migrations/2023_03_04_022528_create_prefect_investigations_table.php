@@ -11,6 +11,10 @@ return new class extends Migration
      *
      * @return void
      */
+
+
+     protected $connection = 'mysql_1';
+
     public function up()
     {
         Schema::create('pd_investigations', function (Blueprint $table) {
@@ -36,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prefect_investigations');
+        Schema::dropIfExists('pd_investigations');
     }
 };

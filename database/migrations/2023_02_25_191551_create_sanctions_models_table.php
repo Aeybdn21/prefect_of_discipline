@@ -11,6 +11,9 @@ return new class extends Migration
      *
      * @return void
      */
+
+     protected $connection = 'mysql_1';
+
     public function up()
     {
         Schema::create('pd_sanctions', function (Blueprint $table) {

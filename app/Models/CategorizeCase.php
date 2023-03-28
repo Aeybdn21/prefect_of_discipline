@@ -9,6 +9,7 @@ use DB;
 class CategorizeCase extends Model
 {
     use HasFactory;
+    protected $connection = 'mysql_1';
     
     protected $table = "pd_categorize_cases";
     protected $guarded = [];

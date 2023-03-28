@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class RegistrarStudentSection extends Model
 {
     use HasFactory;
+    
+    protected $connection = 'mysql_1';
+
     protected $table = "registrar_studentsection";
     protected $guarded = [];
   

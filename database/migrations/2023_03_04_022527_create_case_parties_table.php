@@ -11,6 +11,10 @@ return new class extends Migration
      *
      * @return void
      */
+
+
+     protected $connection = 'mysql_1';
+
     public function up()
     {
         Schema::create('pd_case_parties', function (Blueprint $table) {

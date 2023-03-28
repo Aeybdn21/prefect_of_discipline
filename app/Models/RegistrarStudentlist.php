@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class RegistrarStudentlist extends Model
 {
     use HasFactory;
+
+    protected $connection = 'mysql_1';
+
     protected $table = 'registrar_studentlist'; 
     protected $guarded=[];
     protected $appends = ['student_fullname', 'year_section', 'contact_num63'];  

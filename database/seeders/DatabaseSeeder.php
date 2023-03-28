@@ -27,6 +27,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
         ]);
 
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'itsmeaeron.21@gmail.com',
+        ]);
+   
+
+
         $this->call([
             DefaultSanctions::class,
             DefaultStatuses::class,
