@@ -14,7 +14,7 @@ class RegistrarStudentlist extends Model
     protected $table = 'registrar_studentlist'; 
     protected $guarded=[];
     protected $appends = ['student_fullname', 'year_section', 'contact_num63'];  
-    protected $with = ['sections:Student_ID,Section'];
+    protected $with = ['sections'];
     public function sections () {
         return $this->belongsTo(RegistrarStudentSection::class, 'Student_ID', 'Student_ID');
     }
