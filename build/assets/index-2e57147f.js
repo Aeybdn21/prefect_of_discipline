@@ -1,0 +1,1 @@
+import{A as s}from"./Actions-0e71cdcf.js";const o=a=>e=>{e({type:s.SET_LOADER,loading:!0,display:!0})},i=(a=2e3)=>e=>new Promise(l=>{setTimeout(()=>{e({type:s.SET_LOADER,loading:!1,display:!0}),setTimeout(()=>(e({type:s.SET_LOADER,loading:!1,display:!1}),l(!0)),a)},a)}),n=a=>e=>{e({type:s.SET_LOADER,loading:!1,display:!1})};export{i as a,n as b,o as l};
