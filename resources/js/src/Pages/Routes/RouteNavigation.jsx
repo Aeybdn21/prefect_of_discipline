@@ -7,6 +7,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Link, BrowserRouter, Routes, Route} from "react-router-dom"; 
 import Home from '../Home';
 import StudentRecord from '../StudentRecord';
+import Clinic from '../approval/Clinic';
  
 
 function App(props) {
@@ -39,6 +40,7 @@ function App(props) {
         <Route path="/page" element={<Home/>}/>
         <Route path="/page/home" element={<Home/>}/>
         <Route path="/page/student_record" element={<StudentRecord/>}/>
+        <Route path="/page/clinic" element={<Clinic/>}/>
         <Route path="*" element={<NoMatch/>}/>
       </Routes>
     </MainLayout>

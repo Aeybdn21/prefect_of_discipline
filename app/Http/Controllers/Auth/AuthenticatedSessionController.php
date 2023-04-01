@@ -19,9 +19,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
+
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
+            'testing' => true
         ]);
     }
 
@@ -42,6 +44,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     { 
+        $request->user()->tokens()->delete();
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

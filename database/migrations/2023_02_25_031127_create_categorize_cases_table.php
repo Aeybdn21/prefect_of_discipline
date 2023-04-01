@@ -12,7 +12,7 @@ return new class extends Migration
      * @return void
      */
 
-     protected $connection = 'mysql_1';
+    //  protected $connection = 'mysql_1';
 
     public function up()
     {

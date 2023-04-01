@@ -96,7 +96,7 @@ function InvestigationPage() {
             <th scope="col" className="px-6 py-4 font-medium text-gray-900 ">Case Parties involved</th> 
             <th scope="col" className="px-6 py-4 font-medium text-gray-900 ">Violation Case</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900 ">Violation Details</th> 
-            <th scope="col" className="px-6 py-4 font-medium text-gray-900 text-center">Status</th>
+            <th scope="col" className="px-6 py-4 font-medium text-gray-900 text-center">Approve by</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900"></th>
           </tr>
         </thead>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Main\HomeController;
 use App\Http\Controllers\Main\StudentRecord;
 use App\Http\Controllers\Main\CaseStudyController;
 use App\Http\Controllers\Main\Investigations;
+use App\Http\Controllers\Main\ClinicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,7 @@ Route::middleware(['auth:api'])->group(function(){
         Route::post('update_student_info', [StudentRecord::class, 'updateStudentInfo'])->name('update_student_info');
         Route::post('case_study_store', [CaseStudyController::class, 'storeCaseStudy'])->name('case_study_store');
         Route::post('show_investigations', [Investigations::class, 'showStore'])->name('show_investigations');
+        Route::post('clinic_request_list', [ClinicController::class, 'clinic_request'])->name('clinic_request_list');
+        Route::post('clinic_request_approve_decline', [ClinicController::class, 'clinic_approve_decline'])->name('cl_request_approve_decline');
     });
 });

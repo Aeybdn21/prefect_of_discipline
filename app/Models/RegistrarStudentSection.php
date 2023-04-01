@@ -10,7 +10,7 @@ class RegistrarStudentSection extends Model
 {
     use HasFactory;
     
-    protected $connection = 'mysql_1';
+    // protected $connection = 'mysql_1';
 
     protected $table = "registrar_studentsection";
     protected $guarded = [];

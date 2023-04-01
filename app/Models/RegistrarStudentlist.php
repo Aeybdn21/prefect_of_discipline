@@ -9,7 +9,7 @@ class RegistrarStudentlist extends Model
 {
     use HasFactory;
 
-    protected $connection = 'mysql_1';
+    // protected $connection = 'mysql_1';
 
     protected $table = 'registrar_studentlist'; 
     protected $guarded=[];
@@ -29,7 +29,8 @@ class RegistrarStudentlist extends Model
     public function getYearSectionAttribute(){
         $course = isset($this->sections->Course)? $this->sections->Course: "";
         $sections = isset($this->sections->Section)? $this->sections->Section : "";
-        return "$course-$sections";
+
+        return $course && $sections ? "$course-$sections": null;
     }
     public function getContactNum63Attribute(){
         $contact_num = $this->Contact_No;

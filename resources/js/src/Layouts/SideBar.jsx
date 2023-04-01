@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import { classNames } from '../components/Classes';
 
 
 export default function SideBar() {
 
     const location = useLocation();
+    const [isApprovemenu, setApproveMenu] = useState(false);
+
     useEffect(() => {
         hanldeOnchange();
     },[]);
 
 
     const hanldeOnchange = () => {
-        const selectedMenu = $('.isActive');
+        const selectedMenu = $('.isActive');  
+     
         for(let x=0; x < selectedMenu.length; x ++) { 
             $(selectedMenu[x]).on('click', function(){
                 $($(selectedMenu).children()).removeClass('text-black'); 
@@ -24,11 +29,17 @@ export default function SideBar() {
             });
             const currentRoute = selectedMenu[x].href.replace(window.location.origin, '');
             if(currentRoute == location.pathname){   
-                $($(selectedMenu[x]).addClass('bg-white').children()).addClass('text-black')
+                $($(selectedMenu[x]).addClass('bg-white').children()).addClass('text-black');
             } 
         }  
+        
     } 
-    
+
+    const handleClick = () => {
+        setApproveMenu((init) => !init)
+    }
+
+ 
   return (
     <div className="sidebar close rounded shadow">
         <ul className="nav-list p-0 m-0">
@@ -51,6 +62,33 @@ export default function SideBar() {
                 </Link>
                 <span className="tooltip uppercase">student record</span>
             </li> 
+            <li className={classNames(isApprovemenu? 'showMenu': "")}>
+                <div className="iocn-link arrow" onClick={handleClick}>
+                    <a className="parent">
+                        <i className="bx bx-message-square-error"></i>
+                        <span className="links_name uppercase">Approval</span>
+                    </a>
+                    <i className="bx bx-chevron-down arrow"></i>
+                </div>
+                <ul className="sub-menu">
+                    <li>
+                        <Link to="/page/clinic" className="isActive">
+                            <span className="links_name uppercase">clinic</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/page/guidance" className="isActive"> 
+                            <span className="links_name uppercase">guidance</span>
+                        </Link>
+                    </li> 
+                    <li>
+                        <Link to="/page/safety_security" className="isActive"> 
+                            <span className="links_name uppercase">safety & security</span>
+                        </Link>
+                    </li>
+                </ul>
+            </li>
+            
             <li>
                 <a href="#" className="isActive">
                 <i className='bx bx-bar-chart-alt-2' ></i>

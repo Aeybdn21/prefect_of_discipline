@@ -73,8 +73,7 @@ export default function Record() {
           <tr>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Student number</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Name</th>
-            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Strand/course</th>
-            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Year/section</th>
+            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Course/Section</th> 
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Violation</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Sanctions</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Offence</th>
@@ -95,11 +94,8 @@ export default function Record() {
               </div>
             </th>
             <td className="px-6 py-4"> 
-              {value.students_info.Course}
-            </td>
-            <td className="px-6 py-4 "> 
-                <div className="text-gray-400">{value.year_section.Section}</div>
-            </td>
+              {value.students_info.year_section|| '-'}
+            </td> 
             <td className="py-4"> 
               <div>
                 <div className="font-bold">
@@ -118,12 +114,12 @@ export default function Record() {
             </td>
             <td className="px-6 py-4">
               <div className="flex justify-end gap-4">
-                {value.offenses}
+                {value.offenses || '-'}
               </div>
             </td>
             <td className="px-6 py-4">
               <div className="flex justify-center gap-4 text-center">
-                {value.status !== null ? value.status.description : ' '}
+                {value.status !== null ? value.status.description : ' - '}
               </div>
             </td>
             <td className="px-6 py-4">

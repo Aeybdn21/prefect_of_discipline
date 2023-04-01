@@ -10,8 +10,7 @@ return new class extends Migration
      * Run the migrations.
      *
      * @return void
-     */
-    protected $connection = 'mysql_1';
+     */ 
     
     public function up()
     {
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pd_users');
+        Schema::dropIfExists('pd_users'); 
     }
 };

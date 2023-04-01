@@ -11,7 +11,7 @@ class StudentRecordModel extends Model
 {
     use HasFactory;
     
-    protected $connection = 'mysql_1';
+    // protected $connection = 'mysql_1';
 
     protected $table = "pd_student_records";
     protected $guarded = [];

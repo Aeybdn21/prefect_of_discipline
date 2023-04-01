@@ -9,7 +9,7 @@ class CaseParties extends Model
 {
     use HasFactory;
     
-    protected $connection = 'mysql_1';
+    // protected $connection = 'mysql_1';
 
     protected $table = 'pd_case_parties';
     protected $guarded = [];

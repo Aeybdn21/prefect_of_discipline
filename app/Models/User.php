@@ -18,9 +18,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-
-    protected $connection = 'mysql_1';
-
+ 
     protected $table = "pd_users";
 
     protected $fillable = [

@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sanctions extends Model
+class ClinicRequestModel extends Model
 {
     use HasFactory;
-    
-    // protected $connection = 'mysql_1';
-
-    protected $table = "pd_sanctions";
+    protected $table = "clinic_prefect_integ";
     protected $guarded = [];
+    public $timestamps = false;
 }

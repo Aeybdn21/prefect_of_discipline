@@ -10,7 +10,7 @@ class SanctionRecords extends Model
 {
     use HasFactory;
     
-    protected $connection = 'mysql_1';
+    // protected $connection = 'mysql_1';
 
     protected $table = "pd_sanction_records";
     protected $appends = ['sanction_desc'];
